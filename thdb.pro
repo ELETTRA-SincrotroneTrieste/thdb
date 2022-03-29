@@ -12,10 +12,10 @@ BIN_DIR = $${INSTALL_ROOT}/bin
 
 lib.path = $${LIB_DIR}
 
-VERSION = 1.0.4
+VERSION = 1.0.5
 VER_MAJ = 1
 VER_MIN = 0
-VER_FIX = 4
+VER_FIX = 5
 
 DEFINES += THDB_VERSION=\"\\\"$${VERSION}\\\"\" \
     VER_MAJ=$${VER_MAJ} \
