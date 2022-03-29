@@ -1,0 +1,167 @@
+\doxysection{APTData Class Reference}
+\label{classAPTData}\index{APTData@{APTData}}
+
+
+a simple class whose members store the apt data retrieved from the historical (temporary) database apt table.  
+
+
+
+
+{\ttfamily \#include $<$aptdata.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ APTData} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \textbf{ att\+Id}
+\begin{DoxyCompactList}\small\item\em the ID field of the apt table \end{DoxyCompactList}\item 
+QString \textbf{ source}
+\begin{DoxyCompactList}\small\item\em the tango attribute name whose data refers to. \end{DoxyCompactList}\item 
+QString \textbf{ time}
+\begin{DoxyCompactList}\small\item\em the field time in the apt table \end{DoxyCompactList}\item 
+QString \textbf{ description}
+\begin{DoxyCompactList}\small\item\em the field description in the apt table \end{DoxyCompactList}\item 
+QString \textbf{ label}
+\begin{DoxyCompactList}\small\item\em the field label in the apt table \end{DoxyCompactList}\item 
+QString \textbf{ unit}
+\begin{DoxyCompactList}\small\item\em the field unit in the apt table \end{DoxyCompactList}\item 
+QString \textbf{ standard\+Unit}
+\begin{DoxyCompactList}\small\item\em the field standard\+\_\+unit in the apt table \end{DoxyCompactList}\item 
+QString \textbf{ display\+Unit}
+\begin{DoxyCompactList}\small\item\em the field display\+\_\+unit in the apt table \end{DoxyCompactList}\item 
+QString \textbf{ format}
+\begin{DoxyCompactList}\small\item\em the field format in the apt table \end{DoxyCompactList}\item 
+double \textbf{ min\+Value}
+\begin{DoxyCompactList}\small\item\em the field min\+\_\+value in the apt table \end{DoxyCompactList}\item 
+double \textbf{ max\+Value}
+\begin{DoxyCompactList}\small\item\em the field max\+\_\+value in the apt table \end{DoxyCompactList}\item 
+double \textbf{ min\+Alarm}
+\begin{DoxyCompactList}\small\item\em the field min\+\_\+alarm in the apt table \end{DoxyCompactList}\item 
+double \textbf{ max\+Alarm}
+\begin{DoxyCompactList}\small\item\em the field max\+\_\+alarm in the apt table \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class members are all public. The apt table is described as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+\DoxyCodeLine{| Field         | Type                     | Null | Key | Default | Extra |}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+\DoxyCodeLine{| ID            | int(5) unsigned zerofill | NO   | PRI | 00000   |       |}
+\DoxyCodeLine{| time          | datetime                 | YES  |     | NULL    |       |}
+\DoxyCodeLine{| description   | varchar(255)             | NO   |     |         |       |}
+\DoxyCodeLine{| label         | varchar(64)              | NO   |     |         |       |}
+\DoxyCodeLine{| unit          | varchar(64)              | NO   |     | 1       |       |}
+\DoxyCodeLine{| standard\_unit | varchar(64)              | NO   |     | 1       |       |}
+\DoxyCodeLine{| display\_unit  | varchar(64)              | NO   |     |         |       |}
+\DoxyCodeLine{| format        | varchar(64)              | NO   |     |         |       |}
+\DoxyCodeLine{| min\_value     | varchar(64)              | NO   |     | 0       |       |}
+\DoxyCodeLine{| max\_value     | varchar(64)              | NO   |     | 0       |       |}
+\DoxyCodeLine{| min\_alarm     | varchar(64)              | NO   |     | 0       |       |}
+\DoxyCodeLine{| max\_alarm     | varchar(64)              | NO   |     | 0       |       |}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+
+\end{DoxyCode}
+
+
+Only some of the fields are stored in the \doxyref{APTData}{p.}{classAPTData} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classAPTData_a6e942cba05c6e01ce0c062c060526378}} 
+\index{APTData@{APTData}!APTData@{APTData}}
+\index{APTData@{APTData}!APTData@{APTData}}
+\doxysubsubsection{APTData()}
+{\footnotesize\ttfamily APTData\+::\+APTData (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classAPTData_a19dfdb3597393fc4a1772933e70b7d96}} 
+\index{APTData@{APTData}!attId@{attId}}
+\index{attId@{attId}!APTData@{APTData}}
+\doxysubsubsection{attId}
+{\footnotesize\ttfamily unsigned APTData\+::att\+Id}
+
+\mbox{\label{classAPTData_a808199184c5d9f5fc2fada703aefac18}} 
+\index{APTData@{APTData}!description@{description}}
+\index{description@{description}!APTData@{APTData}}
+\doxysubsubsection{description}
+{\footnotesize\ttfamily QString APTData\+::description}
+
+\mbox{\label{classAPTData_a50a97aff256e7e85b9df4c3fd6208c0e}} 
+\index{APTData@{APTData}!displayUnit@{displayUnit}}
+\index{displayUnit@{displayUnit}!APTData@{APTData}}
+\doxysubsubsection{displayUnit}
+{\footnotesize\ttfamily QString APTData\+::display\+Unit}
+
+\mbox{\label{classAPTData_af75c644cc8051b61f2bda9261999977f}} 
+\index{APTData@{APTData}!format@{format}}
+\index{format@{format}!APTData@{APTData}}
+\doxysubsubsection{format}
+{\footnotesize\ttfamily QString APTData\+::format}
+
+\mbox{\label{classAPTData_ab21bcd7e13f51e835c45b71a20735bd8}} 
+\index{APTData@{APTData}!label@{label}}
+\index{label@{label}!APTData@{APTData}}
+\doxysubsubsection{label}
+{\footnotesize\ttfamily QString APTData\+::label}
+
+\mbox{\label{classAPTData_a655b723c00e77743cf41296c63cda374}} 
+\index{APTData@{APTData}!maxAlarm@{maxAlarm}}
+\index{maxAlarm@{maxAlarm}!APTData@{APTData}}
+\doxysubsubsection{maxAlarm}
+{\footnotesize\ttfamily double APTData\+::max\+Alarm}
+
+\mbox{\label{classAPTData_ad2b1b6acbe4b0e340a99e24b7e616f2e}} 
+\index{APTData@{APTData}!maxValue@{maxValue}}
+\index{maxValue@{maxValue}!APTData@{APTData}}
+\doxysubsubsection{maxValue}
+{\footnotesize\ttfamily double APTData\+::max\+Value}
+
+\mbox{\label{classAPTData_a71d4657ebd8272bc20261cf43271457d}} 
+\index{APTData@{APTData}!minAlarm@{minAlarm}}
+\index{minAlarm@{minAlarm}!APTData@{APTData}}
+\doxysubsubsection{minAlarm}
+{\footnotesize\ttfamily double APTData\+::min\+Alarm}
+
+\mbox{\label{classAPTData_ab47b42f1e4df0fc0a122573e170bb675}} 
+\index{APTData@{APTData}!minValue@{minValue}}
+\index{minValue@{minValue}!APTData@{APTData}}
+\doxysubsubsection{minValue}
+{\footnotesize\ttfamily double APTData\+::min\+Value}
+
+\mbox{\label{classAPTData_a7f8ef7b3624f5702cf69afdeec6233c2}} 
+\index{APTData@{APTData}!source@{source}}
+\index{source@{source}!APTData@{APTData}}
+\doxysubsubsection{source}
+{\footnotesize\ttfamily QString APTData\+::source}
+
+The tango attribute name, such as test/device/1/double\+\_\+scalar \mbox{\label{classAPTData_a64905bc4eb00dc0b0e476e2c481f4204}} 
+\index{APTData@{APTData}!standardUnit@{standardUnit}}
+\index{standardUnit@{standardUnit}!APTData@{APTData}}
+\doxysubsubsection{standardUnit}
+{\footnotesize\ttfamily QString APTData\+::standard\+Unit}
+
+\mbox{\label{classAPTData_a33186e4466a4a16cd33faad49d385a93}} 
+\index{APTData@{APTData}!time@{time}}
+\index{time@{time}!APTData@{APTData}}
+\doxysubsubsection{time}
+{\footnotesize\ttfamily QString APTData\+::time}
+
+\mbox{\label{classAPTData_a943f44ec6eb64b9bf7a03988aa42e798}} 
+\index{APTData@{APTData}!unit@{unit}}
+\index{unit@{unit}!APTData@{APTData}}
+\doxysubsubsection{unit}
+{\footnotesize\ttfamily QString APTData\+::unit}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ aptdata.\+h}\end{DoxyCompactItemize}

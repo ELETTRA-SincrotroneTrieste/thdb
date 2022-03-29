@@ -1,0 +1,99 @@
+\doxysection{Archived\+Sources\+Tree\+Widget Class Reference}
+\label{classArchivedSourcesTreeWidget}\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+
+
+a Tree\+Widget that displays the list of archived sources.  
+
+
+
+
+{\ttfamily \#include $<$archivedsourcestreewidget.\+h$>$}
+
+Inheritance diagram for Archived\+Sources\+Tree\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classArchivedSourcesTreeWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ load} ()
+\begin{DoxyCompactList}\small\item\em loads the tree performing a query on the database \end{DoxyCompactList}\item 
+void \textbf{ reload} ()
+\begin{DoxyCompactList}\small\item\em reloads the tree performing a query on the database \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Archived\+Sources\+Tree\+Widget} (QWidget $\ast$parent=0, \textbf{ THdb} $\ast$\textbf{ thdb}=\textbf{ THdb\+Singleton\+::instance}())
+\begin{DoxyCompactList}\small\item\em The constructor, normally initialized with a parent and a \doxyref{THdb\+Singleton}{p.}{classTHdbSingleton} object, which is the single access point to the database thread in your application. \end{DoxyCompactList}\item 
+void \textbf{ set\+THdb} (\textbf{ THdb} $\ast$\textbf{ thdb})
+\begin{DoxyCompactList}\small\item\em specify a custom \doxyref{THdb}{p.}{classTHdb} object. \end{DoxyCompactList}\item 
+\textbf{ THdb} $\ast$ \textbf{ thdb} () const
+\begin{DoxyCompactList}\small\item\em returns a pointer to the currently \doxyref{THdb}{p.}{classTHdb} object in use \end{DoxyCompactList}\item 
+void \textbf{ switch\+Database} (\textbf{ THdb\+Base\+::\+Type} t, const \textbf{ Db\+Connection\+Params} \&dbp)
+\begin{DoxyCompactList}\small\item\em Connects or reconnects to the historical/temporary database according to the type t and the parameters dbp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This widget derives from QTree\+Widget and provides the list of tango attributes archived in the desired database, specified with the Type in switch\+Database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classArchivedSourcesTreeWidget_aa461c17cd12a88f2b4f52b287727c77d}} 
+\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}!ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}!ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+\doxysubsubsection{ArchivedSourcesTreeWidget()}
+{\footnotesize\ttfamily Archived\+Sources\+Tree\+Widget\+::\+Archived\+Sources\+Tree\+Widget (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily 0},  }\item[{\textbf{ THdb} $\ast$}]{thdb = {\ttfamily \textbf{ THdb\+Singleton\+::instance}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classArchivedSourcesTreeWidget_ad17cb50f35fbc8f81bff295e5301c4ca}} 
+\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}!load@{load}}
+\index{load@{load}!ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+\doxysubsubsection{load}
+{\footnotesize\ttfamily void Archived\+Sources\+Tree\+Widget\+::load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+References \textbf{ reload()}.
+
+\mbox{\label{classArchivedSourcesTreeWidget_a98575e12df4376f7b166a2ead1eed867}} 
+\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}!reload@{reload}}
+\index{reload@{reload}!ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+\doxysubsubsection{reload}
+{\footnotesize\ttfamily void Archived\+Sources\+Tree\+Widget\+::reload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Referenced by \textbf{ load()}.
+
+\mbox{\label{classArchivedSourcesTreeWidget_a08a4a1127ce37425a328caa123b832a5}} 
+\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}!setTHdb@{setTHdb}}
+\index{setTHdb@{setTHdb}!ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+\doxysubsubsection{setTHdb()}
+{\footnotesize\ttfamily void Archived\+Sources\+Tree\+Widget\+::set\+THdb (\begin{DoxyParamCaption}\item[{\textbf{ THdb} $\ast$}]{thdb }\end{DoxyParamCaption})}
+
+\mbox{\label{classArchivedSourcesTreeWidget_aae0d843ca992d823787fb12ddc8ce995}} 
+\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}!switchDatabase@{switchDatabase}}
+\index{switchDatabase@{switchDatabase}!ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+\doxysubsubsection{switchDatabase()}
+{\footnotesize\ttfamily void Archived\+Sources\+Tree\+Widget\+::switch\+Database (\begin{DoxyParamCaption}\item[{\textbf{ THdb\+Base\+::\+Type}}]{t,  }\item[{const \textbf{ Db\+Connection\+Params} \&}]{dbp }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{THdb\+Base\+::\+Type}{p.}{classTHdbBase_a1aa63bc61023edf1a3703bc491bd905e} 
+
+\doxyref{THdb\+Base\+::set\+Type}{p.}{classTHdbBase_a45720d6d9c0b3f9815ae1df12a82f333} 
+\end{DoxySeeAlso}
+\mbox{\label{classArchivedSourcesTreeWidget_ad6eca9addae80623f5944a7031523459}} 
+\index{ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}!thdb@{thdb}}
+\index{thdb@{thdb}!ArchivedSourcesTreeWidget@{ArchivedSourcesTreeWidget}}
+\doxysubsubsection{thdb()}
+{\footnotesize\ttfamily \textbf{ THdb} $\ast$ Archived\+Sources\+Tree\+Widget\+::thdb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ archivedsourcestreewidget.\+h}\end{DoxyCompactItemize}

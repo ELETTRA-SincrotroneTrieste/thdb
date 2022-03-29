@@ -1,0 +1,162 @@
+\doxysection{macros.\+h File Reference}
+\label{macros_8h}\index{macros.h@{macros.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ QTANGOLIB\+\_\+\+GET\+\_\+\+VERSION}()~(VER\+\_\+\+MAJ $\ast$ 10 + VER\+\_\+\+MIN)
+\item 
+\#define \textbf{ QTANGOLIB\+\_\+\+VERSION}(maj,  min)~(maj $\ast$ 10 + min)
+\item 
+\#define \textbf{ pwarn}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ perr}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ pinfo}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ pinfononl}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ pok}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ pwrn}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ pdelete}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ padd}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ pnodelete}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ qstoc}(x)~\char`\"{}\char`\"{}
+\item 
+\#define \textbf{ qobjinfo}(o)~\char`\"{}\char`\"{}
+\item 
+\#define \textbf{ qobjname}(o)~\char`\"{}\char`\"{}
+\item 
+\#define \textbf{ objinfo}(o)~\char`\"{}\char`\"{}
+\item 
+\#define \textbf{ pstep}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ pstepl2}(x,  args...)~do \{\}while(0)
+\item 
+\#define \textbf{ qslisttoc}(x)~do \{\}while(0)
+\item 
+\#define \textbf{ qprintf}(x,  args...)~do \{\}while(0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{macros_8h_ac8d242bfa2f105c297988ba928657f38}} 
+\index{macros.h@{macros.h}!objinfo@{objinfo}}
+\index{objinfo@{objinfo}!macros.h@{macros.h}}
+\doxysubsubsection{objinfo}
+{\footnotesize\ttfamily \#define objinfo(\begin{DoxyParamCaption}\item[{}]{o }\end{DoxyParamCaption})~\char`\"{}\char`\"{}}
+
+\mbox{\label{macros_8h_a4f5772a1a56a9c487661e2eac1211170}} 
+\index{macros.h@{macros.h}!padd@{padd}}
+\index{padd@{padd}!macros.h@{macros.h}}
+\doxysubsubsection{padd}
+{\footnotesize\ttfamily \#define padd(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a629905ebf3b84e70ff80248220fdc7a4}} 
+\index{macros.h@{macros.h}!pdelete@{pdelete}}
+\index{pdelete@{pdelete}!macros.h@{macros.h}}
+\doxysubsubsection{pdelete}
+{\footnotesize\ttfamily \#define pdelete(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_ace3ed8e68957fe0cd2c27043cc5137db}} 
+\index{macros.h@{macros.h}!perr@{perr}}
+\index{perr@{perr}!macros.h@{macros.h}}
+\doxysubsubsection{perr}
+{\footnotesize\ttfamily \#define perr(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a37ed5c66e8f587b69c2259ebad99c7fd}} 
+\index{macros.h@{macros.h}!pinfo@{pinfo}}
+\index{pinfo@{pinfo}!macros.h@{macros.h}}
+\doxysubsubsection{pinfo}
+{\footnotesize\ttfamily \#define pinfo(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a0665727f97705ec782a9335536553544}} 
+\index{macros.h@{macros.h}!pinfononl@{pinfononl}}
+\index{pinfononl@{pinfononl}!macros.h@{macros.h}}
+\doxysubsubsection{pinfononl}
+{\footnotesize\ttfamily \#define pinfononl(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a07375e928e7781c676858907a01c58f9}} 
+\index{macros.h@{macros.h}!pnodelete@{pnodelete}}
+\index{pnodelete@{pnodelete}!macros.h@{macros.h}}
+\doxysubsubsection{pnodelete}
+{\footnotesize\ttfamily \#define pnodelete(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a39ff6a69cab3361eff591af2b06da1d7}} 
+\index{macros.h@{macros.h}!pok@{pok}}
+\index{pok@{pok}!macros.h@{macros.h}}
+\doxysubsubsection{pok}
+{\footnotesize\ttfamily \#define pok(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a209efc85150409f79a8428d2be995253}} 
+\index{macros.h@{macros.h}!pstep@{pstep}}
+\index{pstep@{pstep}!macros.h@{macros.h}}
+\doxysubsubsection{pstep}
+{\footnotesize\ttfamily \#define pstep(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a43a779792098e584ed96f4a41e2799de}} 
+\index{macros.h@{macros.h}!pstepl2@{pstepl2}}
+\index{pstepl2@{pstepl2}!macros.h@{macros.h}}
+\doxysubsubsection{pstepl2}
+{\footnotesize\ttfamily \#define pstepl2(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_ad2d2f62f77d9c9e41ab9ffd6865d2f70}} 
+\index{macros.h@{macros.h}!pwarn@{pwarn}}
+\index{pwarn@{pwarn}!macros.h@{macros.h}}
+\doxysubsubsection{pwarn}
+{\footnotesize\ttfamily \#define pwarn(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a85f070529c6affbda603114e7382c43d}} 
+\index{macros.h@{macros.h}!pwrn@{pwrn}}
+\index{pwrn@{pwrn}!macros.h@{macros.h}}
+\doxysubsubsection{pwrn}
+{\footnotesize\ttfamily \#define pwrn(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a22166b48145c760514384122f0944fc9}} 
+\index{macros.h@{macros.h}!qobjinfo@{qobjinfo}}
+\index{qobjinfo@{qobjinfo}!macros.h@{macros.h}}
+\doxysubsubsection{qobjinfo}
+{\footnotesize\ttfamily \#define qobjinfo(\begin{DoxyParamCaption}\item[{}]{o }\end{DoxyParamCaption})~\char`\"{}\char`\"{}}
+
+\mbox{\label{macros_8h_ade229e426fdc3192097eb3e004b92241}} 
+\index{macros.h@{macros.h}!qobjname@{qobjname}}
+\index{qobjname@{qobjname}!macros.h@{macros.h}}
+\doxysubsubsection{qobjname}
+{\footnotesize\ttfamily \#define qobjname(\begin{DoxyParamCaption}\item[{}]{o }\end{DoxyParamCaption})~\char`\"{}\char`\"{}}
+
+\mbox{\label{macros_8h_a9060e4141d37595bf98efc122e6a1049}} 
+\index{macros.h@{macros.h}!qprintf@{qprintf}}
+\index{qprintf@{qprintf}!macros.h@{macros.h}}
+\doxysubsubsection{qprintf}
+{\footnotesize\ttfamily \#define qprintf(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{args... }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a1cdbb911ee6e92927d29f9703e8da728}} 
+\index{macros.h@{macros.h}!qslisttoc@{qslisttoc}}
+\index{qslisttoc@{qslisttoc}!macros.h@{macros.h}}
+\doxysubsubsection{qslisttoc}
+{\footnotesize\ttfamily \#define qslisttoc(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~do \{\}while(0)}
+
+\mbox{\label{macros_8h_a9dd05eb69076bf30477384c6b7ca8605}} 
+\index{macros.h@{macros.h}!qstoc@{qstoc}}
+\index{qstoc@{qstoc}!macros.h@{macros.h}}
+\doxysubsubsection{qstoc}
+{\footnotesize\ttfamily \#define qstoc(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\char`\"{}\char`\"{}}
+
+\mbox{\label{macros_8h_abd42330b0a7fb9b4df62b85258c14c66}} 
+\index{macros.h@{macros.h}!QTANGOLIB\_GET\_VERSION@{QTANGOLIB\_GET\_VERSION}}
+\index{QTANGOLIB\_GET\_VERSION@{QTANGOLIB\_GET\_VERSION}!macros.h@{macros.h}}
+\doxysubsubsection{QTANGOLIB\_GET\_VERSION}
+{\footnotesize\ttfamily \#define QTANGOLIB\+\_\+\+GET\+\_\+\+VERSION(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(VER\+\_\+\+MAJ $\ast$ 10 + VER\+\_\+\+MIN)}
+
+\mbox{\label{macros_8h_ac84cd92732a9e013d32b36fa9691b8e2}} 
+\index{macros.h@{macros.h}!QTANGOLIB\_VERSION@{QTANGOLIB\_VERSION}}
+\index{QTANGOLIB\_VERSION@{QTANGOLIB\_VERSION}!macros.h@{macros.h}}
+\doxysubsubsection{QTANGOLIB\_VERSION}
+{\footnotesize\ttfamily \#define QTANGOLIB\+\_\+\+VERSION(\begin{DoxyParamCaption}\item[{}]{maj,  }\item[{}]{min }\end{DoxyParamCaption})~(maj $\ast$ 10 + min)}
+

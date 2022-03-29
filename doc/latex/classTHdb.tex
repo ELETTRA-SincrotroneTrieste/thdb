@@ -1,0 +1,284 @@
+\doxysection{THdb Class Reference}
+\label{classTHdb}\index{THdb@{THdb}}
+
+
+A facade to the Historical Database management classes.  
+
+
+
+
+{\ttfamily \#include $<$thdb.\+h$>$}
+
+Inheritance diagram for THdb\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classTHdb}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ get\+Data} (const QString \&source, const QDate\+Time \&start\+Date, const QDate\+Time \&stop\+Date)
+\begin{DoxyCompactList}\small\item\em Retrieves data associated to the tango attribute with name source between start\+Date and stop\+Date. \end{DoxyCompactList}\item 
+void \textbf{ is\+Archived} (const QString \&source)
+\begin{DoxyCompactList}\small\item\em asks the database whether the source is archived or not. \end{DoxyCompactList}\item 
+void \textbf{ get\+Apt\+Data} (const QString \&source)
+\begin{DoxyCompactList}\small\item\em gets data from apt table in the hdb or tdb database. \end{DoxyCompactList}\item 
+void \textbf{ get\+Amt\+Data} (const QString \&source)
+\begin{DoxyCompactList}\small\item\em gets data from amt table in the hdb or tdb database. \end{DoxyCompactList}\item 
+void \textbf{ get\+Archived\+Sources} ()
+\begin{DoxyCompactList}\small\item\em asks the database the list of archived sources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ archived\+Sources\+List\+Ready} (const QString\+List \&sources)
+\begin{DoxyCompactList}\small\item\em this signal is emitted when get\+Archived\+Sources completes. \end{DoxyCompactList}\item 
+void \textbf{ data\+Available} (const QString \&source, const QVector$<$ double $>$ \&x\+Data, const QVector$<$ double $>$ \&y\+Data)
+\begin{DoxyCompactList}\small\item\em after the call to get\+Data this signal carries the data for the desired source in the time interval specified in get\+Data. \end{DoxyCompactList}\item 
+void \textbf{ data\+Set\+Point\+Available} (const QString \&source, const QVector$<$ double $>$ \&x\+Data, const QVector$<$ double $>$ \&y\+Data)
+\begin{DoxyCompactList}\small\item\em The equivalent method for data\+Available, but here y\+Data are the set point values for the read write attribute whose name is source. \end{DoxyCompactList}\item 
+void \textbf{ apt\+Data\+Ready} (const QString \&source, const \textbf{ APTData} \&data)
+\begin{DoxyCompactList}\small\item\em This signal carries the data retrieved from the apt table. \end{DoxyCompactList}\item 
+void \textbf{ amt\+Data\+Ready} (const QString \&source, const \textbf{ AMTData} \&data)
+\begin{DoxyCompactList}\small\item\em This signal carries the data retrieved from the amt table. \end{DoxyCompactList}\item 
+void \textbf{ is\+Archived} (const QString \&source, bool archived)
+\begin{DoxyCompactList}\small\item\em this signal tells if the source is archived or not \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ THdb} (QObject $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+THdb} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ d\+\_\+get\+Scalar\+Data} (const QString \&, int, int writable, const QDate\+Time \&, const QDate\+Time \&)
+\item 
+void \textbf{ d\+\_\+get\+Apt\+Data} (const QString \&, int)
+\item 
+void \textbf{ d\+\_\+get\+Amt\+Data} (const QString \&source, int att\+Id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This class provides a simple default view of the subsystem that manages data retrieval from the historical and temporary databases.
+
+\begin{DoxyNote}{Note}
+Every method call in this class aimed at retrieving data from the database (get\+Data, is\+Archived, get\+Apt\+Data, get\+Amt\+Data, get\+Archived\+Sources) is intended to be used in conjunction with its respective signal, since the underlying database connection and data retrieval is organized in another thread. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTHdb_a2495800ffcbc44e8f3a67e68091d3d5a}} 
+\index{THdb@{THdb}!THdb@{THdb}}
+\index{THdb@{THdb}!THdb@{THdb}}
+\doxysubsubsection{THdb()}
+{\footnotesize\ttfamily THdb\+::\+THdb (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Creates a \doxyref{THdb}{p.}{classTHdb} object activating queries to query the historical (or temporary) database in order to get apt, amt data, the list of archived sources and the data associated to a tango attribute between a start and stop date. \mbox{\label{classTHdb_a9832186886cf7974743f4840ca38503c}} 
+\index{THdb@{THdb}!````~THdb@{$\sim$THdb}}
+\index{````~THdb@{$\sim$THdb}!THdb@{THdb}}
+\doxysubsubsection{$\sim$THdb()}
+{\footnotesize\ttfamily THdb\+::$\sim$\+THdb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classTHdb_a77bef4877ba6a7c0c5b7933b005df79c}} 
+\index{THdb@{THdb}!amtDataReady@{amtDataReady}}
+\index{amtDataReady@{amtDataReady}!THdb@{THdb}}
+\doxysubsubsection{amtDataReady}
+{\footnotesize\ttfamily void THdb\+::amt\+Data\+Ready (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{const \textbf{ AMTData} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+To be used in conjunction with get\+Amt\+Data slot, this signal provides the amt data for the source specified in get\+Amt\+Data.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{get\+Amt\+Data}{p.}{classTHdb_a5bdbfac48c495118f5f660d6158f82ef} 
+
+\doxyref{AMTData}{p.}{classAMTData} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdb_a91926f6a7a9bcbff78f3442d95355df3}} 
+\index{THdb@{THdb}!aptDataReady@{aptDataReady}}
+\index{aptDataReady@{aptDataReady}!THdb@{THdb}}
+\doxysubsubsection{aptDataReady}
+{\footnotesize\ttfamily void THdb\+::apt\+Data\+Ready (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{const \textbf{ APTData} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+To be used in conjunction with get\+Apt\+Data slot, this signal provides the amt data for the source specified in get\+Apt\+Data.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{get\+Apt\+Data}{p.}{classTHdb_ae5b76e2c79133be72718ddbb43650e76} 
+
+\doxyref{APTData}{p.}{classAPTData} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdb_abe6025994e899ef5ef181647102c232a}} 
+\index{THdb@{THdb}!archivedSourcesListReady@{archivedSourcesListReady}}
+\index{archivedSourcesListReady@{archivedSourcesListReady}!THdb@{THdb}}
+\doxysubsubsection{archivedSourcesListReady}
+{\footnotesize\ttfamily void THdb\+::archived\+Sources\+List\+Ready (\begin{DoxyParamCaption}\item[{const QString\+List \&}]{sources }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Connect to this signal to be notified when the list of archived attributes has been retrieved from the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sources} & the list of sources archived into the database as list of strings. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classTHdb_a7fb1b33b4fc4e15c601f41413fabf426}} 
+\index{THdb@{THdb}!d\_getAmtData@{d\_getAmtData}}
+\index{d\_getAmtData@{d\_getAmtData}!THdb@{THdb}}
+\doxysubsubsection{d\_getAmtData}
+{\footnotesize\ttfamily void THdb\+::d\+\_\+get\+Amt\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{int}]{att\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdb_a6868ea359dd8c0e4937e49c1c13ba4cb}} 
+\index{THdb@{THdb}!d\_getAptData@{d\_getAptData}}
+\index{d\_getAptData@{d\_getAptData}!THdb@{THdb}}
+\doxysubsubsection{d\_getAptData}
+{\footnotesize\ttfamily void THdb\+::d\+\_\+get\+Apt\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdb_ac05795ecefaf3cbe7655e476865a4f29}} 
+\index{THdb@{THdb}!d\_getScalarData@{d\_getScalarData}}
+\index{d\_getScalarData@{d\_getScalarData}!THdb@{THdb}}
+\doxysubsubsection{d\_getScalarData}
+{\footnotesize\ttfamily void THdb\+::d\+\_\+get\+Scalar\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{,  }\item[{int}]{,  }\item[{int}]{writable,  }\item[{const QDate\+Time \&}]{,  }\item[{const QDate\+Time \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdb_a35ef7b67226d657ec8961baa00f8d211}} 
+\index{THdb@{THdb}!dataAvailable@{dataAvailable}}
+\index{dataAvailable@{dataAvailable}!THdb@{THdb}}
+\doxysubsubsection{dataAvailable}
+{\footnotesize\ttfamily void THdb\+::data\+Available (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{const QVector$<$ double $>$ \&}]{x\+Data,  }\item[{const QVector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the tango attribute name which the data refers to \\
+\hline
+{\em x\+Data} & the data (timestamp) of the x axis \\
+\hline
+{\em y\+Data} & the actual data stored into the database.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This signal is tailored for TPlot\+Light\+Marker/\+EPlot\+Light set\+Data slot method.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxyref{get\+Data}{p.}{classTHdb_a63356d9e730179c8954fa49f91ce9d24} 
+
+\doxyref{data\+Set\+Point\+Available}{p.}{classTHdb_ab73df8055df66b2c979ba13aae2f3f5c} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdb_ab73df8055df66b2c979ba13aae2f3f5c}} 
+\index{THdb@{THdb}!dataSetPointAvailable@{dataSetPointAvailable}}
+\index{dataSetPointAvailable@{dataSetPointAvailable}!THdb@{THdb}}
+\doxysubsubsection{dataSetPointAvailable}
+{\footnotesize\ttfamily void THdb\+::data\+Set\+Point\+Available (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{const QVector$<$ double $>$ \&}]{x\+Data,  }\item[{const QVector$<$ double $>$ \&}]{y\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{get\+Data}{p.}{classTHdb_a63356d9e730179c8954fa49f91ce9d24} 
+
+\doxyref{data\+Available}{p.}{classTHdb_a35ef7b67226d657ec8961baa00f8d211}
+\end{DoxySeeAlso}
+Read data\+Available documentation since the considerations are equivalent. \mbox{\label{classTHdb_a5bdbfac48c495118f5f660d6158f82ef}} 
+\index{THdb@{THdb}!getAmtData@{getAmtData}}
+\index{getAmtData@{getAmtData}!THdb@{THdb}}
+\doxysubsubsection{getAmtData}
+{\footnotesize\ttfamily void THdb\+::get\+Amt\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the tango attribute name, such as \char`\"{}test/device/1/double\+\_\+scalar\char`\"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+use this method in conjunction with the amt\+Data\+Ready signal, which notifies you when the query execution has been performed and provides the requested data.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxyref{apt\+Data\+Ready}{p.}{classTHdb_a91926f6a7a9bcbff78f3442d95355df3} 
+
+\doxyref{AMTData}{p.}{classAMTData}
+\end{DoxySeeAlso}
+The \doxyref{AMTData}{p.}{classAMTData} class members allow you to retrieve the parameters obtained from the amt table in the historical database. \mbox{\label{classTHdb_ae5b76e2c79133be72718ddbb43650e76}} 
+\index{THdb@{THdb}!getAptData@{getAptData}}
+\index{getAptData@{getAptData}!THdb@{THdb}}
+\doxysubsubsection{getAptData}
+{\footnotesize\ttfamily void THdb\+::get\+Apt\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the tango attribute name, such as \char`\"{}test/device/1/double\+\_\+scalar\char`\"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+use this method in conjunction with the apt\+Data\+Ready signal, which notifies you when the query execution has been performed and provides the requested data.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxyref{apt\+Data\+Ready}{p.}{classTHdb_a91926f6a7a9bcbff78f3442d95355df3} 
+
+\doxyref{APTData}{p.}{classAPTData}
+\end{DoxySeeAlso}
+The \doxyref{APTData}{p.}{classAPTData} class members allow you to retrieve the parameters obtained from the apt table in the historical database. \mbox{\label{classTHdb_a6df56db0af1f44741c20b5fd2b6cfc71}} 
+\index{THdb@{THdb}!getArchivedSources@{getArchivedSources}}
+\index{getArchivedSources@{getArchivedSources}!THdb@{THdb}}
+\doxysubsubsection{getArchivedSources}
+{\footnotesize\ttfamily void THdb\+::get\+Archived\+Sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+This method must be used in conjunction with the archived\+Sources\+List\+Ready signal which notifies you that the data has been collected and provides the desired results inside its argument.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{archived\+Sources\+List\+Ready}{p.}{classTHdb_abe6025994e899ef5ef181647102c232a} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdb_a63356d9e730179c8954fa49f91ce9d24}} 
+\index{THdb@{THdb}!getData@{getData}}
+\index{getData@{getData}!THdb@{THdb}}
+\doxysubsubsection{getData}
+{\footnotesize\ttfamily void THdb\+::get\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{const QDate\+Time \&}]{start\+Date,  }\item[{const QDate\+Time \&}]{stop\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the tango attribute name, such as \char`\"{}test/device/1/double\+\_\+scalar\char`\"{} \\
+\hline
+{\em start\+Date} & the QDate\+Time representing the start date time \\
+\hline
+{\em stop\+Date} & the QDate\+Time representing the stop date time\\
+\hline
+\end{DoxyParams}
+Remember to connect the signal data\+Available or data\+Set\+Point\+Available to your data display/management class in order to receive the data for the source specified when it has been retrieved by the database thread.
+
+The data\+Available and data\+Set\+Point\+Available have their arguments suited to be directly connected with QTango {\itshape TPlot\+Light\+Marker}.
+
+\begin{DoxyParagraph}{Note}
+If no data is stored between the desired start and stop date, then the database is looked backwards in time for the latest available data preceding the desired start date. When found, the start date is set equal to the desired start date and the latest available data is automatically associated to the desired start date.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxyref{data\+Available}{p.}{classTHdb_a35ef7b67226d657ec8961baa00f8d211} 
+
+\doxyref{data\+Set\+Point\+Available}{p.}{classTHdb_ab73df8055df66b2c979ba13aae2f3f5c} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdb_a7eb14bbc3be651fbbaaa4d5a73d6d156}} 
+\index{THdb@{THdb}!isArchived@{isArchived}}
+\index{isArchived@{isArchived}!THdb@{THdb}}
+\doxysubsubsection{isArchived\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void THdb\+::is\+Archived (\begin{DoxyParamCaption}\item[{const QString \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+This method must be used in conjunction with the is\+Archived signal in order to be notified if the source is archived or not.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{is\+Archived}{p.}{classTHdb_a7eb14bbc3be651fbbaaa4d5a73d6d156} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdb_a12b26cd68de6774731b52293acf401b0}} 
+\index{THdb@{THdb}!isArchived@{isArchived}}
+\index{isArchived@{isArchived}!THdb@{THdb}}
+\doxysubsubsection{isArchived\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void THdb\+::is\+Archived (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{bool}]{archived }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & attribute name \\
+\hline
+{\em archived} & true is archived fals not archived. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ thdb.\+h}\end{DoxyCompactItemize}

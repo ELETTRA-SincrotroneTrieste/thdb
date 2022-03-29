@@ -1,0 +1,59 @@
+\doxysection{qhdbconfigwidget.\+h}
+\label{qhdbconfigwidget_8h_source}\index{qhdbconfigwidget.h@{qhdbconfigwidget.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef THDBCONFIGWIDGET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define THDBCONFIGWIDGET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}ui\_configWidget.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }EPlotCurve;}
+\DoxyCodeLine{8 \textcolor{keyword}{class }SourcesTreeWidget;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }QHdbConfigWidget : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     Q\_OBJECT}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keyword}{explicit} QHdbConfigWidget(QWidget *parent = 0);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \string~QHdbConfigWidget();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     QDateTime startDateTime() \textcolor{keyword}{const};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     QDateTime stopDateTime() \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     QStringList sources() \textcolor{keyword}{const};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} setSources(\textcolor{keyword}{const} QStringList\& src);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 signals:}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} sourceRemoved(\textcolor{keyword}{const} QString\& src);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} viewClicked();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} cancelClicked();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{protected} slots:}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} removeSourceClicked();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} addSourceClicked();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} lastDaysHoursChanged();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{private}:}
+\DoxyCodeLine{51     Ui::ConfigWidget ui;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} m\_viewSourcesListChanged();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     QStringList m\_sourcesFromTree(QTreeWidget *tree) \textcolor{keyword}{const};}
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// THDBCONFIGDIALOG\_H}}
+
+\end{DoxyCode}

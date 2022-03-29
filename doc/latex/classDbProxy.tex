@@ -1,0 +1,329 @@
+\doxysection{Db\+Proxy Class Reference}
+\label{classDbProxy}\index{DbProxy@{DbProxy}}
+
+
+The database proxy. Connects to the database and executes queries in a separate thread. You better not use it directly, instead look at \doxyref{THdb\+Base}{p.}{classTHdbBase} and \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} classes.  
+
+
+
+
+{\ttfamily \#include $<$dbproxy.\+h$>$}
+
+Inheritance diagram for Db\+Proxy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDbProxy}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ exit\+Loop} ()
+\item 
+void \textbf{ process\+Request} ()
+\item 
+void \textbf{ error} (const QString \&origin, const QString \&message)
+\item 
+void \textbf{ database\+Open} ()
+\item 
+void \textbf{ query\+Sent} ()
+\begin{DoxyCompactList}\small\item\em emitted just right before calling exec() method \end{DoxyCompactList}\item 
+void \textbf{ query\+Executed} (bool result)
+\begin{DoxyCompactList}\small\item\em emitted right after exec() returns. The result is containtd into result variable. \end{DoxyCompactList}\item 
+void \textbf{ database\+Error} (const QString \&origin, const QString \&\textbf{ last\+Error\+Message})
+\begin{DoxyCompactList}\small\item\em this signal is emitted if exec() returns false. \end{DoxyCompactList}\item 
+void \textbf{ connection\+Info} (const QString \&info)
+\begin{DoxyCompactList}\small\item\em This signal is emitted whenever something changes in the connection status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ error} () const
+\begin{DoxyCompactList}\small\item\em returns true if an error happened during last operation on the database. \end{DoxyCompactList}\item 
+QString \textbf{ last\+Error\+Message} () const
+\begin{DoxyCompactList}\small\item\em returns the last {\bfseries{connection}} error message. \end{DoxyCompactList}\item 
+void \textbf{ add\+Query\+Event} (Db\+Query\+Event $\ast$dbqe)
+\begin{DoxyCompactList}\small\item\em adds a Db\+Query\+Event on the event queue and then asks the thread to process the queue. \end{DoxyCompactList}\item 
+void \textbf{ set\+Database} (const \textbf{ Db\+Connection\+Params} \&dbcon\+Par)
+\begin{DoxyCompactList}\small\item\em switches to the database specified by the argument \end{DoxyCompactList}\item 
+bool \textbf{ database\+Is\+Open} () const
+\begin{DoxyCompactList}\small\item\em returns true if the database is open. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Db\+Proxy} $\ast$ \textbf{ instance} (QObject $\ast$parent=NULL)
+\begin{DoxyCompactList}\small\item\em Returns the instance associated to the Database Thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Db\+Proxy} (QObject $\ast$parent)
+\begin{DoxyCompactList}\small\item\em the constructor of the Database thread, called proxy. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$\+Db\+Proxy} ()
+\item 
+virtual void \textbf{ run} ()
+\begin{DoxyCompactList}\small\item\em the run method of the Database thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QSql\+Database \textbf{ m\+\_\+sql\+Db}
+\item 
+bool \textbf{ m\+\_\+db\+Error}
+\item 
+QString \textbf{ m\+\_\+last\+Error\+Message}
+\item 
+QString \textbf{ m\+\_\+host}
+\item 
+QString \textbf{ m\+\_\+user}
+\item 
+QString \textbf{ m\+\_\+pass}
+\item 
+QString \textbf{ m\+\_\+schema}
+\item 
+unsigned short \textbf{ m\+\_\+port}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use this class only if you need very specific behaviour. Otherwise, look at \doxyref{THdb\+Base}{p.}{classTHdbBase} and \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} classes, which are the essential classes to build a database connection and submit any type of query. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classDbProxy_a8cbacc9c6becbbed642b2d34beffe793}} 
+\index{DbProxy@{DbProxy}!DbProxy@{DbProxy}}
+\index{DbProxy@{DbProxy}!DbProxy@{DbProxy}}
+\doxysubsubsection{DbProxy()}
+{\footnotesize\ttfamily Db\+Proxy\+::\+Db\+Proxy (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Starts the thread after connecting the QCore\+Application\+::about\+To\+Quit signal to the app\+About\+To\+Quit slot. \mbox{\label{classDbProxy_ab7fc41db78cb8f6c3d0ff8e78d4b5c82}} 
+\index{DbProxy@{DbProxy}!````~DbProxy@{$\sim$DbProxy}}
+\index{````~DbProxy@{$\sim$DbProxy}!DbProxy@{DbProxy}}
+\doxysubsubsection{$\sim$DbProxy()}
+{\footnotesize\ttfamily virtual Db\+Proxy\+::$\sim$\+Db\+Proxy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classDbProxy_a7bd10a3cc7e26fb8d8242b60b1d6524c}} 
+\index{DbProxy@{DbProxy}!addQueryEvent@{addQueryEvent}}
+\index{addQueryEvent@{addQueryEvent}!DbProxy@{DbProxy}}
+\doxysubsubsection{addQueryEvent()}
+{\footnotesize\ttfamily void Db\+Proxy\+::add\+Query\+Event (\begin{DoxyParamCaption}\item[{Db\+Query\+Event $\ast$}]{dbqe }\end{DoxyParamCaption})}
+
+This is invoked by THdb\+Base\+Private\+::execute\+Query in the main thread. At the end, after enqueueing the event, the process request signal is emitted to tell the thread to process the event queue. \mbox{\label{classDbProxy_a9cbc20a0efed2adac0bb00eb4c80e86b}} 
+\index{DbProxy@{DbProxy}!connectionInfo@{connectionInfo}}
+\index{connectionInfo@{connectionInfo}!DbProxy@{DbProxy}}
+\doxysubsubsection{connectionInfo}
+{\footnotesize\ttfamily void Db\+Proxy\+::connection\+Info (\begin{DoxyParamCaption}\item[{const QString \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+This signal is emitted on database connection (be it successful or not) and when there is an error executing a query.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{database\+Error}{p.}{classDbProxy_ac206b8500fcbdca35e973ec0dd0374bd} 
+\end{DoxySeeAlso}
+\mbox{\label{classDbProxy_ac206b8500fcbdca35e973ec0dd0374bd}} 
+\index{DbProxy@{DbProxy}!databaseError@{databaseError}}
+\index{databaseError@{databaseError}!DbProxy@{DbProxy}}
+\doxysubsubsection{databaseError}
+{\footnotesize\ttfamily void Db\+Proxy\+::database\+Error (\begin{DoxyParamCaption}\item[{const QString \&}]{origin,  }\item[{const QString \&}]{last\+Error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Error\+Message} & the associated error message. \\
+\hline
+{\em origin} & the origin of the error.\\
+\hline
+\end{DoxyParams}
+Use this signal if you have an error reporting framework suitable to accept an origin and a message parameter. If you only need a single connection information message, please see connection\+Info
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{connection\+Info}{p.}{classDbProxy_a9cbc20a0efed2adac0bb00eb4c80e86b} 
+\end{DoxySeeAlso}
+\mbox{\label{classDbProxy_a3ccfee7e8d0f0cb0b2a6634c9118c4f0}} 
+\index{DbProxy@{DbProxy}!databaseIsOpen@{databaseIsOpen}}
+\index{databaseIsOpen@{databaseIsOpen}!DbProxy@{DbProxy}}
+\doxysubsubsection{databaseIsOpen()}
+{\footnotesize\ttfamily bool Db\+Proxy\+::database\+Is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+References \textbf{ m\+\_\+sql\+Db}.
+
+\mbox{\label{classDbProxy_a22fa29a9e26915f3ed5e047dab8bff86}} 
+\index{DbProxy@{DbProxy}!databaseOpen@{databaseOpen}}
+\index{databaseOpen@{databaseOpen}!DbProxy@{DbProxy}}
+\doxysubsubsection{databaseOpen}
+{\footnotesize\ttfamily void Db\+Proxy\+::database\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classDbProxy_a90f579f1f5d952e97549214c88a45324}} 
+\index{DbProxy@{DbProxy}!error@{error}}
+\index{error@{error}!DbProxy@{DbProxy}}
+\doxysubsubsection{error()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Db\+Proxy\+::error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+true an error is present. Get it with last\+Error\+Message
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{last\+Error\+Message}{p.}{classDbProxy_a8b31f98a8ea7ff93a00df9a2ced8ac1c} 
+\end{DoxySeeAlso}
+
+
+References \textbf{ m\+\_\+db\+Error}.
+
+\mbox{\label{classDbProxy_a86f2f0e45663e6dff532d299a189f72d}} 
+\index{DbProxy@{DbProxy}!error@{error}}
+\index{error@{error}!DbProxy@{DbProxy}}
+\doxysubsubsection{error\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Db\+Proxy\+::error (\begin{DoxyParamCaption}\item[{const QString \&}]{origin,  }\item[{const QString \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classDbProxy_a4f28994d865a79a7a5596e5620d9fd84}} 
+\index{DbProxy@{DbProxy}!exitLoop@{exitLoop}}
+\index{exitLoop@{exitLoop}!DbProxy@{DbProxy}}
+\doxysubsubsection{exitLoop}
+{\footnotesize\ttfamily void Db\+Proxy\+::exit\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classDbProxy_ad16325da75d08d1fc9ad84343dc8912c}} 
+\index{DbProxy@{DbProxy}!instance@{instance}}
+\index{instance@{instance}!DbProxy@{DbProxy}}
+\doxysubsubsection{instance()}
+{\footnotesize\ttfamily static \textbf{ Db\+Proxy} $\ast$ Db\+Proxy\+::instance (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Should you ever directly use this thread, remember to wait() on it when opportune.
+
+On first instance invocation, a new thread is started and it executes its event loop waiting for Db\+Query\+Event events. 
+
+{\bfseries{Note}}\+: you shouldn\textquotesingle{}t need to use this class directly. Instead see \doxyref{THdb\+Base}{p.}{classTHdbBase}, \doxyref{THdb}{p.}{classTHdb}, \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} classes. 
+
+The thread exits when QCore\+Application emits the {\bfseries{about\+To\+Quit}} signal, so that you needn\textquotesingle{}t worry about the thread exit. Instead, wait() must be called if you do not rely on \doxyref{THdb\+Base}{p.}{classTHdbBase} class in your application. \mbox{\label{classDbProxy_a8b31f98a8ea7ff93a00df9a2ced8ac1c}} 
+\index{DbProxy@{DbProxy}!lastErrorMessage@{lastErrorMessage}}
+\index{lastErrorMessage@{lastErrorMessage}!DbProxy@{DbProxy}}
+\doxysubsubsection{lastErrorMessage()}
+{\footnotesize\ttfamily QString Db\+Proxy\+::last\+Error\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the last {\bfseries{connection}} error message.
+\end{DoxyReturn}
+\doxyparagraph*{Note}
+
+This does not contain the last query execution error message. ~\newline
+ database\+Error and connection\+Info {\bfseries{signals}} have to be used to receive error notifications on query exec().
+
+\doxyparagraph*{Another note}
+
+THdb\+Base\+Private manages signals emitted by this class. \begin{DoxySeeAlso}{See also}
+THdb\+Base\+Private constructor 
+\end{DoxySeeAlso}
+
+
+References \textbf{ m\+\_\+last\+Error\+Message}.
+
+\mbox{\label{classDbProxy_a19ada2ac7aaf21fa9d1709992ed05818}} 
+\index{DbProxy@{DbProxy}!processRequest@{processRequest}}
+\index{processRequest@{processRequest}!DbProxy@{DbProxy}}
+\doxysubsubsection{processRequest}
+{\footnotesize\ttfamily void Db\+Proxy\+::process\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classDbProxy_aa0e8c59abb8a5fa28d19ce731c1ed615}} 
+\index{DbProxy@{DbProxy}!queryExecuted@{queryExecuted}}
+\index{queryExecuted@{queryExecuted}!DbProxy@{DbProxy}}
+\doxysubsubsection{queryExecuted}
+{\footnotesize\ttfamily void Db\+Proxy\+::query\+Executed (\begin{DoxyParamCaption}\item[{bool}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classDbProxy_af494547b4c4fc704a8deb3522e50d022}} 
+\index{DbProxy@{DbProxy}!querySent@{querySent}}
+\index{querySent@{querySent}!DbProxy@{DbProxy}}
+\doxysubsubsection{querySent}
+{\footnotesize\ttfamily void Db\+Proxy\+::query\+Sent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classDbProxy_ac2d268989261b2654e20cefaed682282}} 
+\index{DbProxy@{DbProxy}!run@{run}}
+\index{run@{run}!DbProxy@{DbProxy}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily virtual void Db\+Proxy\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyItemize}
+\item initiates the QSql\+Database by calling add\+Database with QMYSQL as parameter; 
+\item creates an exit loop timer to exit the thread when QCore\+Application\+::instance() emits the about\+To\+Quit signal; 
+\item creates a process\+Timer to empty the queue just when the thread starts running (events might have been accumulated); 
+\item creates a queued connection to manage query and other event execution. 
+\item Calls exec to start the event loop of the thread.
+
+
+\end{DoxyItemize}\mbox{\label{classDbProxy_a197fc3ee4550d94bc34b44ccdc1bb78d}} 
+\index{DbProxy@{DbProxy}!setDatabase@{setDatabase}}
+\index{setDatabase@{setDatabase}!DbProxy@{DbProxy}}
+\doxysubsubsection{setDatabase()}
+{\footnotesize\ttfamily void Db\+Proxy\+::set\+Database (\begin{DoxyParamCaption}\item[{const \textbf{ Db\+Connection\+Params} \&}]{dbcon\+Par }\end{DoxyParamCaption})}
+
+Enqueues a Switch\+Database\+Event on the event queue so that the current connection is closed and a new one is opened according to the parameters.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classDbProxy_a9214d7500cd6034d32e23dffa86a99b4}} 
+\index{DbProxy@{DbProxy}!m\_dbError@{m\_dbError}}
+\index{m\_dbError@{m\_dbError}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_dbError}
+{\footnotesize\ttfamily bool Db\+Proxy\+::m\+\_\+db\+Error\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Referenced by \textbf{ error()}.
+
+\mbox{\label{classDbProxy_a2cb1b57f98827f43ccd7dbd0dbd0cbfe}} 
+\index{DbProxy@{DbProxy}!m\_host@{m\_host}}
+\index{m\_host@{m\_host}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_host}
+{\footnotesize\ttfamily QString Db\+Proxy\+::m\+\_\+host\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classDbProxy_a5e83f79b9ee2b0dcf7563e73936eff36}} 
+\index{DbProxy@{DbProxy}!m\_lastErrorMessage@{m\_lastErrorMessage}}
+\index{m\_lastErrorMessage@{m\_lastErrorMessage}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_lastErrorMessage}
+{\footnotesize\ttfamily QString Db\+Proxy\+::m\+\_\+last\+Error\+Message\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Referenced by \textbf{ last\+Error\+Message()}.
+
+\mbox{\label{classDbProxy_ada0b68e4560704cc71081bff6a5adc5f}} 
+\index{DbProxy@{DbProxy}!m\_pass@{m\_pass}}
+\index{m\_pass@{m\_pass}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_pass}
+{\footnotesize\ttfamily QString Db\+Proxy\+::m\+\_\+pass\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classDbProxy_abdb769b7d86f6e15d32c14265b70691c}} 
+\index{DbProxy@{DbProxy}!m\_port@{m\_port}}
+\index{m\_port@{m\_port}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_port}
+{\footnotesize\ttfamily unsigned short Db\+Proxy\+::m\+\_\+port\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classDbProxy_a8aa22129209a0eeaf26f758c45dc78e8}} 
+\index{DbProxy@{DbProxy}!m\_schema@{m\_schema}}
+\index{m\_schema@{m\_schema}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_schema}
+{\footnotesize\ttfamily QString Db\+Proxy\+::m\+\_\+schema\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classDbProxy_a056aa37ebbb742df6794941daafc62ea}} 
+\index{DbProxy@{DbProxy}!m\_sqlDb@{m\_sqlDb}}
+\index{m\_sqlDb@{m\_sqlDb}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_sqlDb}
+{\footnotesize\ttfamily QSql\+Database Db\+Proxy\+::m\+\_\+sql\+Db\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Referenced by \textbf{ database\+Is\+Open()}.
+
+\mbox{\label{classDbProxy_a5a84077145cc1232c6fc3039552ae196}} 
+\index{DbProxy@{DbProxy}!m\_user@{m\_user}}
+\index{m\_user@{m\_user}!DbProxy@{DbProxy}}
+\doxysubsubsection{m\_user}
+{\footnotesize\ttfamily QString Db\+Proxy\+::m\+\_\+user\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dbproxy.\+h}\end{DoxyCompactItemize}

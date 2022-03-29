@@ -1,0 +1,147 @@
+\doxysection{THdb\+Plot Class Reference}
+\label{classTHdbPlot}\index{THdbPlot@{THdbPlot}}
+
+
+{\ttfamily \#include $<$thdbplot.\+h$>$}
+
+Inheritance diagram for THdb\+Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTHdbPlot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ update} (const QString\+List \&sources)
+\item 
+void \textbf{ remove\+Historical\+Curve} (const QString \&src)
+\item 
+void \textbf{ set\+Live\+Mode\+Enabled} (bool live)
+\item 
+void \textbf{ request\+Widget\+Switch} ()
+\begin{DoxyCompactList}\small\item\em if parent widget is a \doxyref{Historical\+View\+Widget}{p.}{classHistoricalViewWidget}, then asks it to switch to the correct widget aimed at represented Number Scalars \end{DoxyCompactList}\item 
+Db\+Plot\+Adapter\+Interface $\ast$ \textbf{ get\+Adapter\+If} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ historical\+Data\+Updated} ()
+\begin{DoxyCompactList}\small\item\em Emitted when new data arrives from hdb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ THdb\+Plot} (QWidget $\ast$parent)
+\item 
+virtual \textbf{ $\sim$\+THdb\+Plot} ()
+\item 
+void \textbf{ set\+THdb} (\textbf{ THdb} $\ast$t)
+\item 
+\textbf{ THdb} $\ast$ \textbf{ thdb} () const
+\item 
+void \textbf{ set\+Type} (\textbf{ THdb\+Base\+::\+Type} t)
+\item 
+\textbf{ THdb\+Base\+::\+Type} \textbf{ type} () const
+\item 
+bool \textbf{ live\+Mode\+Enabled} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \textbf{ database\+Changed} (\textbf{ THdb\+Base\+::\+Type})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTHdbPlot_a09efe28f6a08984e745f3c3820800b12}} 
+\index{THdbPlot@{THdbPlot}!THdbPlot@{THdbPlot}}
+\index{THdbPlot@{THdbPlot}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{THdbPlot()}
+{\footnotesize\ttfamily THdb\+Plot\+::\+THdb\+Plot (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent }\end{DoxyParamCaption})}
+
+\mbox{\label{classTHdbPlot_a20a1a6dd1744f7151844f69671551b36}} 
+\index{THdbPlot@{THdbPlot}!````~THdbPlot@{$\sim$THdbPlot}}
+\index{````~THdbPlot@{$\sim$THdbPlot}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{$\sim$THdbPlot()}
+{\footnotesize\ttfamily virtual THdb\+Plot\+::$\sim$\+THdb\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classTHdbPlot_a026fcfcdb59165fc3d5787144a021167}} 
+\index{THdbPlot@{THdbPlot}!databaseChanged@{databaseChanged}}
+\index{databaseChanged@{databaseChanged}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{databaseChanged}
+{\footnotesize\ttfamily virtual void THdb\+Plot\+::database\+Changed (\begin{DoxyParamCaption}\item[{\textbf{ THdb\+Base\+::\+Type}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdbPlot_abb77d5d1be6c0acecd7e271a1f788782}} 
+\index{THdbPlot@{THdbPlot}!getAdapterIf@{getAdapterIf}}
+\index{getAdapterIf@{getAdapterIf}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{getAdapterIf}
+{\footnotesize\ttfamily Db\+Plot\+Adapter\+Interface $\ast$ THdb\+Plot\+::get\+Adapter\+If (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTHdbPlot_abcb1894f4a2c9c5ddbf48b43c3df7c94}} 
+\index{THdbPlot@{THdbPlot}!historicalDataUpdated@{historicalDataUpdated}}
+\index{historicalDataUpdated@{historicalDataUpdated}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{historicalDataUpdated}
+{\footnotesize\ttfamily void THdb\+Plot\+::historical\+Data\+Updated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbPlot_aec8cc9ab8ab24fbad322e26fa8e4e4ea}} 
+\index{THdbPlot@{THdbPlot}!liveModeEnabled@{liveModeEnabled}}
+\index{liveModeEnabled@{liveModeEnabled}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{liveModeEnabled()}
+{\footnotesize\ttfamily bool THdb\+Plot\+::live\+Mode\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbPlot_a747cd1822fb42476634a173ee7326820}} 
+\index{THdbPlot@{THdbPlot}!removeHistoricalCurve@{removeHistoricalCurve}}
+\index{removeHistoricalCurve@{removeHistoricalCurve}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{removeHistoricalCurve}
+{\footnotesize\ttfamily void THdb\+Plot\+::remove\+Historical\+Curve (\begin{DoxyParamCaption}\item[{const QString \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTHdbPlot_addb30217a84018d262c16aacb7331ce9}} 
+\index{THdbPlot@{THdbPlot}!requestWidgetSwitch@{requestWidgetSwitch}}
+\index{requestWidgetSwitch@{requestWidgetSwitch}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{requestWidgetSwitch}
+{\footnotesize\ttfamily void THdb\+Plot\+::request\+Widget\+Switch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTHdbPlot_af47e8b2a76c9daf65c69bbcb5ce570ff}} 
+\index{THdbPlot@{THdbPlot}!setLiveModeEnabled@{setLiveModeEnabled}}
+\index{setLiveModeEnabled@{setLiveModeEnabled}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{setLiveModeEnabled}
+{\footnotesize\ttfamily void THdb\+Plot\+::set\+Live\+Mode\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{live }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTHdbPlot_a01bf430031093451ede311937d055cc8}} 
+\index{THdbPlot@{THdbPlot}!setTHdb@{setTHdb}}
+\index{setTHdb@{setTHdb}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{setTHdb()}
+{\footnotesize\ttfamily void THdb\+Plot\+::set\+THdb (\begin{DoxyParamCaption}\item[{\textbf{ THdb} $\ast$}]{t }\end{DoxyParamCaption})}
+
+\mbox{\label{classTHdbPlot_accf1f2ba138cf46554b34852b8b0711e}} 
+\index{THdbPlot@{THdbPlot}!setType@{setType}}
+\index{setType@{setType}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{setType()}
+{\footnotesize\ttfamily void THdb\+Plot\+::set\+Type (\begin{DoxyParamCaption}\item[{\textbf{ THdb\+Base\+::\+Type}}]{t }\end{DoxyParamCaption})}
+
+\mbox{\label{classTHdbPlot_a5afc048a61a4f4794ec420970a581943}} 
+\index{THdbPlot@{THdbPlot}!thdb@{thdb}}
+\index{thdb@{thdb}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{thdb()}
+{\footnotesize\ttfamily \textbf{ THdb} $\ast$ THdb\+Plot\+::thdb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbPlot_adac87f3b880ba06aac06051dcdbefdc6}} 
+\index{THdbPlot@{THdbPlot}!type@{type}}
+\index{type@{type}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily \textbf{ THdb\+Base\+::\+Type} THdb\+Plot\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbPlot_a9b4a675a4b8815d7490fa3ce4e36700a}} 
+\index{THdbPlot@{THdbPlot}!update@{update}}
+\index{update@{update}!THdbPlot@{THdbPlot}}
+\doxysubsubsection{update}
+{\footnotesize\ttfamily void THdb\+Plot\+::update (\begin{DoxyParamCaption}\item[{const QString\+List \&}]{sources }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ thdbplot.\+h}\end{DoxyCompactItemize}

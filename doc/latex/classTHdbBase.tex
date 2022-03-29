@@ -1,0 +1,352 @@
+\doxysection{THdb\+Base Class Reference}
+\label{classTHdbBase}\index{THdbBase@{THdbBase}}
+
+
+\doxyref{THdb\+Base}{p.}{classTHdbBase} is the base class to interact with or derive from to connect to a My\+Sql database and execute queries in a separate thread.  
+
+
+
+
+{\ttfamily \#include $<$thdbbase.\+h$>$}
+
+Inheritance diagram for THdb\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classTHdbBase}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Type} \{ \newline
+\textbf{ Unspecified} = -\/1
+, \textbf{ Historical} = 0
+, \textbf{ Temporary} = 1
+, \textbf{ Snap} = 2
+, \newline
+\textbf{ User} = 100
+ \}
+\begin{DoxyCompactList}\small\item\em the database type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \textbf{ on\+Thread\+Started} ()
+\begin{DoxyCompactList}\small\item\em This method is invoked when the database thread is started. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ database\+Type\+Changed} (\textbf{ THdb\+Base\+::\+Type} t)
+\item 
+void \textbf{ database\+Open} ()
+\begin{DoxyCompactList}\small\item\em This signal is emitted when the database thread is started and the connection open. \end{DoxyCompactList}\item 
+void \textbf{ db\+Thread\+Started} ()
+\begin{DoxyCompactList}\small\item\em This signal is emitted when the database thread is started. \end{DoxyCompactList}\item 
+void \textbf{ db\+Thread\+Finished} ()
+\begin{DoxyCompactList}\small\item\em This signal is emitted when the database thread finishes. \end{DoxyCompactList}\item 
+void \textbf{ query\+Sent} ()
+\begin{DoxyCompactList}\small\item\em emitted just right before calling exec() method \end{DoxyCompactList}\item 
+void \textbf{ query\+Executed} (bool result)
+\begin{DoxyCompactList}\small\item\em emitted right after exec() returns. The result is containtd into result variable. \end{DoxyCompactList}\item 
+void \textbf{ database\+Error} (const QString \&origin, const QString \&last\+Error\+Message)
+\begin{DoxyCompactList}\small\item\em this signal is emitted if exec() returns false. \end{DoxyCompactList}\item 
+void \textbf{ db\+Connection\+Info} (const QString \&info)
+\begin{DoxyCompactList}\small\item\em another signal containing an informational message \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ THdb\+Base} (QObject $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$\+THdb\+Base} ()
+\begin{DoxyCompactList}\small\item\em the class destructor \end{DoxyCompactList}\item 
+\textbf{ Type} \textbf{ type} () const
+\begin{DoxyCompactList}\small\item\em Returns the database type. \end{DoxyCompactList}\item 
+void \textbf{ set\+Type} (\textbf{ Type} t, const \textbf{ Db\+Connection\+Params} \&db\+Cp)
+\begin{DoxyCompactList}\small\item\em sets up the connection to the database specified in the \doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams} \end{DoxyCompactList}\item 
+void \textbf{ set\+Connection\+Parameters} (const \textbf{ Db\+Connection\+Params} \&db\+Cp)
+\begin{DoxyCompactList}\small\item\em Changes the connection parameters without touching the type. \end{DoxyCompactList}\item 
+void \textbf{ register\+Db\+Query} (const QString \&name, \textbf{ Db\+Query\+Interface} $\ast$db\+Query)
+\begin{DoxyCompactList}\small\item\em adds the db\+Query to the list of queries managed by \doxyref{THdb}{p.}{classTHdb}. \end{DoxyCompactList}\item 
+void \textbf{ unregister\+Db\+Query} (const QString \&name)
+\begin{DoxyCompactList}\small\item\em removes the \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} associated to name. \end{DoxyCompactList}\item 
+\textbf{ Db\+Query\+Interface} $\ast$ \textbf{ db\+Query\+Interface} (const QString \&name)
+\begin{DoxyCompactList}\small\item\em returns the \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} associated to name. \end{DoxyCompactList}\item 
+QString\+List \textbf{ registered\+Query\+Interfaces} () const
+\begin{DoxyCompactList}\small\item\em Returns the mnemonic names associated to the registered Db\+Query\+Interfaces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static QString \textbf{ version} ()
+\begin{DoxyCompactList}\small\item\em returns the version of the library, as defined in thdb.\+pro \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \textbf{ execute\+Query} (const QString \&interface\+Name, int id)
+\begin{DoxyCompactList}\small\item\em an internal slot that is responsible for query execution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyParagraph}{Description}
+\doxyref{THdb\+Base}{p.}{classTHdbBase} is a class which you can directly use to connect to a My\+Sql database or subclass to personalize its behaviour and create a custom interface for your specific application.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+Create your \doxyref{THdb\+Base}{p.}{classTHdbBase} instance with a valid parent and then call set\+Type or set\+Connection\+Parameters to connect to a My\+Sql database. Then you can start registering your \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} implementation with register\+Db\+Query. You have to subclass \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} in order to place your query to the database via this framework. The method db\+Query\+Interface returns the \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} object with the name specified when register\+Db\+Query was called. Use unregister\+Db\+Query to remove a previously registered \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface}. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\label{classTHdbBase_a1aa63bc61023edf1a3703bc491bd905e}} 
+\index{THdbBase@{THdbBase}!Type@{Type}}
+\index{Type@{Type}!THdbBase@{THdbBase}}
+\doxysubsubsection{Type}
+{\footnotesize\ttfamily enum \textbf{ THdb\+Base\+::\+Type}}
+
+Some common types are predefined and can be use if they represent your needs. Otherwise you can use User or other types. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Unspecified@{Unspecified}!THdbBase@{THdbBase}}\index{THdbBase@{THdbBase}!Unspecified@{Unspecified}}}\mbox{\label{classTHdbBase_a1aa63bc61023edf1a3703bc491bd905ead4bea4ce14c5fafaaf2a303ffb9c0e22}} 
+Unspecified&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Historical@{Historical}!THdbBase@{THdbBase}}\index{THdbBase@{THdbBase}!Historical@{Historical}}}\mbox{\label{classTHdbBase_a1aa63bc61023edf1a3703bc491bd905ea61c84e0e77bf6d2bcc89d251adc13e36}} 
+Historical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Temporary@{Temporary}!THdbBase@{THdbBase}}\index{THdbBase@{THdbBase}!Temporary@{Temporary}}}\mbox{\label{classTHdbBase_a1aa63bc61023edf1a3703bc491bd905ea13672a26108900c4b9dffe2f7f0e4ca3}} 
+Temporary&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Snap@{Snap}!THdbBase@{THdbBase}}\index{THdbBase@{THdbBase}!Snap@{Snap}}}\mbox{\label{classTHdbBase_a1aa63bc61023edf1a3703bc491bd905eade3650e84d2174d7705c279de14b9487}} 
+Snap&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{User@{User}!THdbBase@{THdbBase}}\index{THdbBase@{THdbBase}!User@{User}}}\mbox{\label{classTHdbBase_a1aa63bc61023edf1a3703bc491bd905ea625a296dfb178124db24df088601ff9a}} 
+User&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTHdbBase_a420382477d63a152c857c6390d50b130}} 
+\index{THdbBase@{THdbBase}!THdbBase@{THdbBase}}
+\index{THdbBase@{THdbBase}!THdbBase@{THdbBase}}
+\doxysubsubsection{THdbBase()}
+{\footnotesize\ttfamily THdb\+Base\+::\+THdb\+Base (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+It simply allocates a \doxyref{THdb\+Base}{p.}{classTHdbBase} object. As soon as this object is created, the database thread is started and executing its event loop. It is possible to set\+Type to specify the connection parameters.
+
+\begin{DoxyParagraph}{Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{THdbBase *db = \textcolor{keyword}{new} THdbBase(\textcolor{keyword}{this});}
+\DoxyCodeLine{\textcolor{comment}{// this class defines the connection parameters}}
+\DoxyCodeLine{DbConnectionParams params(\textcolor{stringliteral}{"{}schema"{}}, \textcolor{stringliteral}{"{}username"{}}, \textcolor{stringliteral}{"{}password"{}}, \textcolor{stringliteral}{"{}hostname"{}}, 3306);}
+\DoxyCodeLine{db-\/>setType(THdbBase::User, params);}
+
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Type}{p.}{classTHdbBase_a45720d6d9c0b3f9815ae1df12a82f333} 
+
+\doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_a757880618cd24f45d0f1223359410ac3}} 
+\index{THdbBase@{THdbBase}!````~THdbBase@{$\sim$THdbBase}}
+\index{````~THdbBase@{$\sim$THdbBase}!THdbBase@{THdbBase}}
+\doxysubsubsection{$\sim$THdbBase()}
+{\footnotesize\ttfamily virtual THdb\+Base\+::$\sim$\+THdb\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+If you construct a \doxyref{THdb\+Base}{p.}{classTHdbBase} with a valid parent, then QObject destroys \doxyref{THdb\+Base}{p.}{classTHdbBase} for you and it is not necessary to delete it manually. This destructor deletes private data. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classTHdbBase_a224e45d332161426d80b2dc1e36666cb}} 
+\index{THdbBase@{THdbBase}!databaseError@{databaseError}}
+\index{databaseError@{databaseError}!THdbBase@{THdbBase}}
+\doxysubsubsection{databaseError}
+{\footnotesize\ttfamily void THdb\+Base\+::database\+Error (\begin{DoxyParamCaption}\item[{const QString \&}]{origin,  }\item[{const QString \&}]{last\+Error\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Error\+Message} & the associated error message. \\
+\hline
+{\em origin} & a description of the origin of the error\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{query\+Sent}{p.}{classTHdbBase_a033e0c415c9da2dbe1a0c36d6d992d47} 
+
+\doxyref{query\+Executed}{p.}{classTHdbBase_a48c60c7d29d6f0a0d7a8756ff8e94a46} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_a9c24906cc748a6ff5f2e60b0f84287f8}} 
+\index{THdbBase@{THdbBase}!databaseOpen@{databaseOpen}}
+\index{databaseOpen@{databaseOpen}!THdbBase@{THdbBase}}
+\doxysubsubsection{databaseOpen}
+{\footnotesize\ttfamily void THdb\+Base\+::database\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+You can use this signal to be notified when it is possible to make queries. \mbox{\label{classTHdbBase_ab615fffba4f2b313b7e5b80f4f67b00f}} 
+\index{THdbBase@{THdbBase}!databaseTypeChanged@{databaseTypeChanged}}
+\index{databaseTypeChanged@{databaseTypeChanged}!THdbBase@{THdbBase}}
+\doxysubsubsection{databaseTypeChanged}
+{\footnotesize\ttfamily void THdb\+Base\+::database\+Type\+Changed (\begin{DoxyParamCaption}\item[{\textbf{ THdb\+Base\+::\+Type}}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbBase_a2bf89c3c348a7c2f63f1533cd9118967}} 
+\index{THdbBase@{THdbBase}!dbConnectionInfo@{dbConnectionInfo}}
+\index{dbConnectionInfo@{dbConnectionInfo}!THdbBase@{THdbBase}}
+\doxysubsubsection{dbConnectionInfo}
+{\footnotesize\ttfamily void THdb\+Base\+::db\+Connection\+Info (\begin{DoxyParamCaption}\item[{const QString \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+This signal is provided for convenience, should it fit your signal/slot connection needs better than the above signal.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{database\+Error}{p.}{classTHdbBase_a224e45d332161426d80b2dc1e36666cb} 
+
+\doxyref{query\+Sent}{p.}{classTHdbBase_a033e0c415c9da2dbe1a0c36d6d992d47} 
+
+\doxyref{query\+Executed}{p.}{classTHdbBase_a48c60c7d29d6f0a0d7a8756ff8e94a46} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_aa9e44409712f8c8944848fd7ee63701f}} 
+\index{THdbBase@{THdbBase}!dbQueryInterface@{dbQueryInterface}}
+\index{dbQueryInterface@{dbQueryInterface}!THdbBase@{THdbBase}}
+\doxysubsubsection{dbQueryInterface()}
+{\footnotesize\ttfamily \textbf{ Db\+Query\+Interface} $\ast$ THdb\+Base\+::db\+Query\+Interface (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+Returns NULL if the name provided is not associated to any \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} object.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{register\+Db\+Query}{p.}{classTHdbBase_a5a3e96123fd4d5a84799b48d6536c4d1} 
+
+\doxyref{registered\+Query\+Interfaces}{p.}{classTHdbBase_a1b87b6a578b114c85711324aadde58cd} 
+
+\doxyref{unregister\+Db\+Query}{p.}{classTHdbBase_a7f7f343141731342f7eefccaf908bfa7} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_ae870a240a1b61d300bb56b705685f72e}} 
+\index{THdbBase@{THdbBase}!dbThreadFinished@{dbThreadFinished}}
+\index{dbThreadFinished@{dbThreadFinished}!THdbBase@{THdbBase}}
+\doxysubsubsection{dbThreadFinished}
+{\footnotesize\ttfamily void THdb\+Base\+::db\+Thread\+Finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbBase_abe7ca364d99a71beb244c29f9ff7b030}} 
+\index{THdbBase@{THdbBase}!dbThreadStarted@{dbThreadStarted}}
+\index{dbThreadStarted@{dbThreadStarted}!THdbBase@{THdbBase}}
+\doxysubsubsection{dbThreadStarted}
+{\footnotesize\ttfamily void THdb\+Base\+::db\+Thread\+Started (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbBase_a556991cb427a3abd6e23874957850a0f}} 
+\index{THdbBase@{THdbBase}!executeQuery@{executeQuery}}
+\index{executeQuery@{executeQuery}!THdbBase@{THdbBase}}
+\doxysubsubsection{executeQuery}
+{\footnotesize\ttfamily virtual void THdb\+Base\+::execute\+Query (\begin{DoxyParamCaption}\item[{const QString \&}]{interface\+Name,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+If the query with name interface\+Name has been registered with register\+Db\+Query, then it is retrieved from the internal hash and a new Db\+Query\+Event is created and enqueued to the \doxyref{Db\+Proxy}{p.}{classDbProxy} database thread in order to be executed. ~\newline
+ If interface\+Name does not match any registered interfaces, i.\+e. registered\+Query\+Interfaces does not contain it, the method simply does nothing. \mbox{\label{classTHdbBase_a836fca45cd112c9c0081ebd931be1a77}} 
+\index{THdbBase@{THdbBase}!onThreadStarted@{onThreadStarted}}
+\index{onThreadStarted@{onThreadStarted}!THdbBase@{THdbBase}}
+\doxysubsubsection{onThreadStarted}
+{\footnotesize\ttfamily virtual void THdb\+Base\+::on\+Thread\+Started (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+The default implementation does nothing. \mbox{\label{classTHdbBase_a48c60c7d29d6f0a0d7a8756ff8e94a46}} 
+\index{THdbBase@{THdbBase}!queryExecuted@{queryExecuted}}
+\index{queryExecuted@{queryExecuted}!THdbBase@{THdbBase}}
+\doxysubsubsection{queryExecuted}
+{\footnotesize\ttfamily void THdb\+Base\+::query\+Executed (\begin{DoxyParamCaption}\item[{bool}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & true if the QSql\+Query\+::exec() method is successful. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classTHdbBase_a033e0c415c9da2dbe1a0c36d6d992d47}} 
+\index{THdbBase@{THdbBase}!querySent@{querySent}}
+\index{querySent@{querySent}!THdbBase@{THdbBase}}
+\doxysubsubsection{querySent}
+{\footnotesize\ttfamily void THdb\+Base\+::query\+Sent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+You can use this signal to evidentiate in your application that the query is being performed in the background, i.\+e. in the database thread. \mbox{\label{classTHdbBase_a5a3e96123fd4d5a84799b48d6536c4d1}} 
+\index{THdbBase@{THdbBase}!registerDbQuery@{registerDbQuery}}
+\index{registerDbQuery@{registerDbQuery}!THdbBase@{THdbBase}}
+\doxysubsubsection{registerDbQuery()}
+{\footnotesize\ttfamily void THdb\+Base\+::register\+Db\+Query (\begin{DoxyParamCaption}\item[{const QString \&}]{name,  }\item[{\textbf{ Db\+Query\+Interface} $\ast$}]{db\+Query }\end{DoxyParamCaption})}
+
+The db\+Query is associated to the name. You can later get the db\+Query reference by calling db\+Query\+Interface.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{unregister\+Db\+Query}{p.}{classTHdbBase_a7f7f343141731342f7eefccaf908bfa7} 
+
+\doxyref{registered\+Query\+Interfaces}{p.}{classTHdbBase_a1b87b6a578b114c85711324aadde58cd} 
+
+\doxyref{db\+Query\+Interface}{p.}{classTHdbBase_aa9e44409712f8c8944848fd7ee63701f} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_a1b87b6a578b114c85711324aadde58cd}} 
+\index{THdbBase@{THdbBase}!registeredQueryInterfaces@{registeredQueryInterfaces}}
+\index{registeredQueryInterfaces@{registeredQueryInterfaces}!THdbBase@{THdbBase}}
+\doxysubsubsection{registeredQueryInterfaces()}
+{\footnotesize\ttfamily QString\+List THdb\+Base\+::registered\+Query\+Interfaces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{register\+Db\+Query}{p.}{classTHdbBase_a5a3e96123fd4d5a84799b48d6536c4d1} 
+
+\doxyref{db\+Query\+Interface}{p.}{classTHdbBase_aa9e44409712f8c8944848fd7ee63701f} 
+
+\doxyref{unregister\+Db\+Query}{p.}{classTHdbBase_a7f7f343141731342f7eefccaf908bfa7} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_a5a55c7839e9b58e24a244eff0fd681d1}} 
+\index{THdbBase@{THdbBase}!setConnectionParameters@{setConnectionParameters}}
+\index{setConnectionParameters@{setConnectionParameters}!THdbBase@{THdbBase}}
+\doxysubsubsection{setConnectionParameters()}
+{\footnotesize\ttfamily void THdb\+Base\+::set\+Connection\+Parameters (\begin{DoxyParamCaption}\item[{const \textbf{ Db\+Connection\+Params} \&}]{db\+Cp }\end{DoxyParamCaption})}
+
+Changes/switches the database connection according to the \doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams} object. This does not change the Type of the connection.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Type}{p.}{classTHdbBase_a45720d6d9c0b3f9815ae1df12a82f333} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_a45720d6d9c0b3f9815ae1df12a82f333}} 
+\index{THdbBase@{THdbBase}!setType@{setType}}
+\index{setType@{setType}!THdbBase@{THdbBase}}
+\doxysubsubsection{setType()}
+{\footnotesize\ttfamily void THdb\+Base\+::set\+Type (\begin{DoxyParamCaption}\item[{\textbf{ Type}}]{t,  }\item[{const \textbf{ Db\+Connection\+Params} \&}]{db\+Cp }\end{DoxyParamCaption})}
+
+Initiates or changes the database connection. 
+\begin{DoxyParams}{Parameters}
+{\em db\+Cp} & the \doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams} describing the connection parameters (host, user, password, schema, database port \\
+\hline
+{\em t} & the database type, not essential.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{set\+Connection\+Parameters}{p.}{classTHdbBase_a5a55c7839e9b58e24a244eff0fd681d1} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_a611ca14cff68601b35daf4a0f5adeebb}} 
+\index{THdbBase@{THdbBase}!type@{type}}
+\index{type@{type}!THdbBase@{THdbBase}}
+\doxysubsubsection{type()}
+{\footnotesize\ttfamily \textbf{ Type} THdb\+Base\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the database type as defined in the Type enum
+\end{DoxyReturn}
+The type parameter can be useful if in your application you need to switch from one database connection to another many times. The type parameter can help you know which database you are connected to in a certain instant. \mbox{\label{classTHdbBase_a7f7f343141731342f7eefccaf908bfa7}} 
+\index{THdbBase@{THdbBase}!unregisterDbQuery@{unregisterDbQuery}}
+\index{unregisterDbQuery@{unregisterDbQuery}!THdbBase@{THdbBase}}
+\doxysubsubsection{unregisterDbQuery()}
+{\footnotesize\ttfamily void THdb\+Base\+::unregister\+Db\+Query (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+Note\+: it does not delete the associated \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} object.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{register\+Db\+Query}{p.}{classTHdbBase_a5a3e96123fd4d5a84799b48d6536c4d1} 
+
+\doxyref{registered\+Query\+Interfaces}{p.}{classTHdbBase_a1b87b6a578b114c85711324aadde58cd} 
+
+\doxyref{db\+Query\+Interface}{p.}{classTHdbBase_aa9e44409712f8c8944848fd7ee63701f} 
+\end{DoxySeeAlso}
+\mbox{\label{classTHdbBase_a7e3d546e5c9b96537a2aed82aff39488}} 
+\index{THdbBase@{THdbBase}!version@{version}}
+\index{version@{version}!THdbBase@{THdbBase}}
+\doxysubsubsection{version()}
+{\footnotesize\ttfamily static QString THdb\+Base\+::version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ thdbbase.\+h}\end{DoxyCompactItemize}

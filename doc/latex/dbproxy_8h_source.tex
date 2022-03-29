@@ -1,0 +1,99 @@
+\doxysection{dbproxy.\+h}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DBPROXY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DBPROXY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QThread>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QReadWriteLock>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QtSql/QSqlDatabase>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QDateTime>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QQueue>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}dbconnectionparams.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QEvent>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QCoreApplication>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }APTInfo;}
+\DoxyCodeLine{15 \textcolor{keyword}{class }DbQueryEvent;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }DbProxy : \textcolor{keyword}{public} QThread}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     Q\_OBJECT}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{48     \textcolor{keyword}{static} DbProxy *instance(QObject *parent = NULL);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} error()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_dbError; \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{74     QString lastErrorMessage()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_lastErrorMessage; \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} addQueryEvent(DbQueryEvent *dbqe);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} setDatabase(\textcolor{keyword}{const} DbConnectionParams\& dbconPar);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} databaseIsOpen()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_sqlDb.isOpen(); \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{110     DbProxy(QObject *parent);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keyword}{virtual} \string~DbProxy();}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{128     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run();}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     QSqlDatabase m\_sqlDb;}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{keywordtype}{bool} m\_dbError;}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     QString m\_lastErrorMessage;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     QString m\_host, m\_user, m\_pass, m\_schema;}
+\DoxyCodeLine{137     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} m\_port;}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 signals:}
+\DoxyCodeLine{140     \textcolor{keywordtype}{void} exitLoop();}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     \textcolor{keywordtype}{void} processRequest();}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{keywordtype}{void} error(\textcolor{keyword}{const} QString\& origin, \textcolor{keyword}{const} QString\& message);}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \textcolor{keywordtype}{void} databaseOpen();}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{151     \textcolor{keywordtype}{void} querySent();}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{157     \textcolor{keywordtype}{void} queryExecuted(\textcolor{keywordtype}{bool} result);}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{170     \textcolor{keywordtype}{void} databaseError(\textcolor{keyword}{const} QString\& origin, \textcolor{keyword}{const} QString\& lastErrorMessage);}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{181     \textcolor{keywordtype}{void} connectionInfo(\textcolor{keyword}{const} QString\& info);}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \textcolor{keywordtype}{void} appAboutToQuit();}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{keywordtype}{void} process();}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordtype}{void} close();}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{keyword}{private}:}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193     \textcolor{keywordtype}{int} m\_queryCnt;}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     QQueue<DbQueryEvent *> m\_eventQueue;}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     QReadWriteLock m\_rwLock;}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     DbConnectionParams m\_dbConnectionParams;}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{keyword}{static} DbProxy* \_instance;}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203     \textcolor{keywordtype}{void} m\_switchDatabase();}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205 \};}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DBPROXY\_H}}
+
+\end{DoxyCode}

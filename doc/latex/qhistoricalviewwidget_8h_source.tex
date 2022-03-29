@@ -1,0 +1,43 @@
+\doxysection{qhistoricalviewwidget.\+h}
+\label{qhistoricalviewwidget_8h_source}\index{qhistoricalviewwidget.h@{qhistoricalviewwidget.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef HISTORICALVIEWWIDGET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define HISTORICALVIEWWIDGET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QStackedWidget>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QDateTime>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <xvariant.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }QHistoricalViewWidgetPrivate;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }QHistoricalViewWidget : \textcolor{keyword}{public} QStackedWidget}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     Q\_OBJECT}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{enum} DataType \{ NumberScalar, NumberVector, StringScalar, StringVector,}
+\DoxyCodeLine{25              State, StateVector, User = 100 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{31     QHistoricalViewWidget(QWidget *parent);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \string~QHistoricalViewWidget();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} registerWidget(QWidget *w, DataType dt);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} switchWidget(DataType t);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     QWidget *widget(DataType t);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{private}:}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     QHistoricalViewWidgetPrivate *d\_ptr;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     Q\_DECLARE\_PRIVATE(QHistoricalViewWidget)}
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// HISTORICALPLOT\_H}}
+
+\end{DoxyCode}

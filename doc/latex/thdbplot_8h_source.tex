@@ -1,0 +1,65 @@
+\doxysection{thdbplot.\+h}
+\label{thdbplot_8h_source}\index{thdbplot.h@{thdbplot.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef THDBPLOT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define THDBPLOT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <TPlotLightMarker>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QDateTime>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}../thdb.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../dbconnectionparams.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }THdbPlotPrivate;}
+\DoxyCodeLine{10 \textcolor{keyword}{class }DbPlotAdapterInterface;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }THdbPlot : \textcolor{keyword}{public} TPlotLightMarker}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     Q\_OBJECT}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     THdbPlot(QWidget *parent);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \string~THdbPlot();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} setTHdb(THdb* t);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     THdb* thdb() \textcolor{keyword}{const};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} setType(THdbBase::Type t);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     THdbBase::Type type() \textcolor{keyword}{const};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} liveModeEnabled() \textcolor{keyword}{const};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 signals:}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} historicalDataUpdated();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} update(\textcolor{keyword}{const} QStringList\& sources);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} removeHistoricalCurve(\textcolor{keyword}{const} QString\& src);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} setLiveModeEnabled(\textcolor{keywordtype}{bool} live);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} requestWidgetSwitch();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     DbPlotAdapterInterface *getAdapterIf();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{protected} slots:}
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} databaseChanged(THdbBase::Type);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{private}:}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} m\_installAdapterInterface(THdbBase::Type t);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     Q\_DECLARE\_PRIVATE(THdbPlot)}
+\DoxyCodeLine{61     THdbPlotPrivate *d\_ptr;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// THDBPLOT\_H}}
+
+\end{DoxyCode}

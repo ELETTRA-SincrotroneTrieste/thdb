@@ -1,0 +1,227 @@
+\doxysection{THdb\+Config\+Widget Class Reference}
+\label{classTHdbConfigWidget}\index{THdbConfigWidget@{THdbConfigWidget}}
+
+
+a configuration widget for the historical database.  
+
+
+
+
+{\ttfamily \#include $<$thdbconfigwidget.\+h$>$}
+
+Inheritance diagram for THdb\+Config\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTHdbConfigWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ refresh\+Sources} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ source\+Removed} (const QString \&src)
+\item 
+void \textbf{ live\+Enabled} (bool)
+\item 
+void \textbf{ hdb\+Selected} (bool)
+\item 
+void \textbf{ tdb\+Selected} (bool)
+\item 
+void \textbf{ view\+Clicked} ()
+\item 
+void \textbf{ cancel\+Clicked} ()
+\item 
+void \textbf{ refresh\+Sources\+Clicked} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ THdb\+Config\+Widget} (QWidget $\ast$parent=0)
+\item 
+virtual \textbf{ $\sim$\+THdb\+Config\+Widget} ()
+\item 
+QDate\+Time \textbf{ start\+Date\+Time} () const
+\item 
+QDate\+Time \textbf{ stop\+Date\+Time} () const
+\item 
+QString\+List \textbf{ sources} () const
+\item 
+void \textbf{ set\+Sources} (const QString\+List \&src)
+\item 
+bool \textbf{ live} () const
+\item 
+bool \textbf{ hdb} () const
+\item 
+bool \textbf{ tdb} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ now\+Enabled} (bool)
+\item 
+void \textbf{ add\+Source\+Clicked} ()
+\item 
+void \textbf{ remove\+Source\+Clicked} ()
+\item 
+void \textbf{ update\+Live\+Date\+Time} ()
+\item 
+void \textbf{ last\+Days\+Hours\+Changed} ()
+\item 
+void \textbf{ init} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This widget contains a set of controls to get data from the historical database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTHdbConfigWidget_afdeb0a43759c7740fdf60a06ccb60be0}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!THdbConfigWidget@{THdbConfigWidget}}
+\index{THdbConfigWidget@{THdbConfigWidget}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{THdbConfigWidget()}
+{\footnotesize\ttfamily THdb\+Config\+Widget\+::\+THdb\+Config\+Widget (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\label{classTHdbConfigWidget_a91fbe09f4a911b48cce862acdfef087e}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!````~THdbConfigWidget@{$\sim$THdbConfigWidget}}
+\index{````~THdbConfigWidget@{$\sim$THdbConfigWidget}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{$\sim$THdbConfigWidget()}
+{\footnotesize\ttfamily virtual THdb\+Config\+Widget\+::$\sim$\+THdb\+Config\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classTHdbConfigWidget_abd7b80e3854609a151b5cfe9d57ff0fb}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!addSourceClicked@{addSourceClicked}}
+\index{addSourceClicked@{addSourceClicked}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{addSourceClicked}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::add\+Source\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdbConfigWidget_a511e899a4960b34118495ac447e3d3b4}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!cancelClicked@{cancelClicked}}
+\index{cancelClicked@{cancelClicked}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{cancelClicked}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::cancel\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbConfigWidget_ad5a9baf223234262761440bcf3305b10}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!hdb@{hdb}}
+\index{hdb@{hdb}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{hdb()}
+{\footnotesize\ttfamily bool THdb\+Config\+Widget\+::hdb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbConfigWidget_ae780983f49ef68d7e6fed1be9122e9ea}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!hdbSelected@{hdbSelected}}
+\index{hdbSelected@{hdbSelected}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{hdbSelected}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::hdb\+Selected (\begin{DoxyParamCaption}\item[{bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbConfigWidget_a98109380c8b52da0c2ba5743a65402b1}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!init@{init}}
+\index{init@{init}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{init}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdbConfigWidget_adffce7e3393ed72b2117aeb2511fea44}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!lastDaysHoursChanged@{lastDaysHoursChanged}}
+\index{lastDaysHoursChanged@{lastDaysHoursChanged}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{lastDaysHoursChanged}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::last\+Days\+Hours\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdbConfigWidget_accfc85c8a2c50c1732ecc8278ca5a9cf}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!live@{live}}
+\index{live@{live}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{live()}
+{\footnotesize\ttfamily bool THdb\+Config\+Widget\+::live (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbConfigWidget_ae6a39ef1d7c0dfc680f1126ac17d9eee}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!liveEnabled@{liveEnabled}}
+\index{liveEnabled@{liveEnabled}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{liveEnabled}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::live\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbConfigWidget_ab03210a06e05ae03c09128e464c6a62b}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!nowEnabled@{nowEnabled}}
+\index{nowEnabled@{nowEnabled}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{nowEnabled}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::now\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdbConfigWidget_acc20fe3d9b63e8508f4f796a91cf7fac}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!refreshSources@{refreshSources}}
+\index{refreshSources@{refreshSources}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{refreshSources}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::refresh\+Sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classTHdbConfigWidget_a5eee3cd0a6cc5296cc091eaeb808e97b}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!refreshSourcesClicked@{refreshSourcesClicked}}
+\index{refreshSourcesClicked@{refreshSourcesClicked}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{refreshSourcesClicked}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::refresh\+Sources\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbConfigWidget_a334cd46d03306e5dd287229d058ecec6}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!removeSourceClicked@{removeSourceClicked}}
+\index{removeSourceClicked@{removeSourceClicked}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{removeSourceClicked}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::remove\+Source\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdbConfigWidget_a1b93bdf60ef4040e3b4c0b7b5d03e0fd}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!setSources@{setSources}}
+\index{setSources@{setSources}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{setSources()}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::set\+Sources (\begin{DoxyParamCaption}\item[{const QString\+List \&}]{src }\end{DoxyParamCaption})}
+
+\mbox{\label{classTHdbConfigWidget_a46da3964f29bb195fbe95bb4ff6ebf1e}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!sourceRemoved@{sourceRemoved}}
+\index{sourceRemoved@{sourceRemoved}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{sourceRemoved}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::source\+Removed (\begin{DoxyParamCaption}\item[{const QString \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbConfigWidget_af9b95bff469cf998606b7e1fa9e013ed}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!sources@{sources}}
+\index{sources@{sources}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{sources()}
+{\footnotesize\ttfamily QString\+List THdb\+Config\+Widget\+::sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbConfigWidget_a5be65c63a1aefa6b722ceb7d85eefed4}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!startDateTime@{startDateTime}}
+\index{startDateTime@{startDateTime}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{startDateTime()}
+{\footnotesize\ttfamily QDate\+Time THdb\+Config\+Widget\+::start\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbConfigWidget_a9b7732d13027884a660754106ece8f14}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!stopDateTime@{stopDateTime}}
+\index{stopDateTime@{stopDateTime}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{stopDateTime()}
+{\footnotesize\ttfamily QDate\+Time THdb\+Config\+Widget\+::stop\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbConfigWidget_afe3718ed0415401c365e62a6d7b54927}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!tdb@{tdb}}
+\index{tdb@{tdb}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{tdb()}
+{\footnotesize\ttfamily bool THdb\+Config\+Widget\+::tdb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classTHdbConfigWidget_ad1110dd46c218200571ed00020a0d0ca}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!tdbSelected@{tdbSelected}}
+\index{tdbSelected@{tdbSelected}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{tdbSelected}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::tdb\+Selected (\begin{DoxyParamCaption}\item[{bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classTHdbConfigWidget_a9496a3415654df588ba71077295991f7}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!updateLiveDateTime@{updateLiveDateTime}}
+\index{updateLiveDateTime@{updateLiveDateTime}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{updateLiveDateTime}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::update\+Live\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classTHdbConfigWidget_af66ac2facc6382fa580829183a7c8136}} 
+\index{THdbConfigWidget@{THdbConfigWidget}!viewClicked@{viewClicked}}
+\index{viewClicked@{viewClicked}!THdbConfigWidget@{THdbConfigWidget}}
+\doxysubsubsection{viewClicked}
+{\footnotesize\ttfamily void THdb\+Config\+Widget\+::view\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ thdbconfigwidget.\+h}\end{DoxyCompactItemize}

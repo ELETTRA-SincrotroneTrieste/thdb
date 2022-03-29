@@ -1,0 +1,195 @@
+This class gives access to the database and allows registering \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} objects, which are the means to query the database. 
+
+\doxyref{THdb}{p.}{classTHdb} is a library based on Qt that provides a programmer interface to easily execute queries on a separate thread and notify the user when the query execution terminates.
+
+The main classes to keep in mind when using the library are 
+\begin{DoxyItemize}
+\item \doxyref{THdb\+Base}{p.}{classTHdbBase}\+: manages database connection and queries; 
+\item \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface}\+: an interface that {\itshape must be reimplemented} in order to define the desired query and to be notified when the query execution ends and data are ready. 
+\item \doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams}\+: a class that contains the relevant parameters to open and setup a valid connection to a My\+Sql database. 
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+These three classes should be enough for you to write an application to connect to a My\+Sql database and to submit any type of query to it.
+
+Under the directory {\bfseries{example/thdb\+Demo}} you\textquotesingle{}ll find a simple example of an application that executes a query and shows the results on a QTable\+Widget. You may want to have a look at that application first. 
+\end{DoxyNote}
+
+
+\doxysubsubsection*{Historical Database (HDB) tailored classes}
+
+The library provides a specific implementation of \doxyref{THdb\+Base}{p.}{classTHdbBase} which is called \doxyref{THdb}{p.}{classTHdb}, to which the reader is sent if interested to interact with that specific database.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{THdb}{p.}{classTHdb}
+\end{DoxySeeAlso}
+
+
+\doxysubsubsection*{Framework description}
+
+The main feature is that {\bfseries{the query is executed in another thread}}. When data is ready, the \doxyref{Db\+Query\+Interface\+::notify()}{p.}{classDbQueryInterface_a6b61df898472b74141437f43b7d5488c} method is called and actually represents a callback. You must write your own notify() method in order to receive and organize the data collected from the database. 
+
+If subsequent queries are sent to the database via the \doxyref{Db\+Query\+Interface\+::execute}{p.}{classDbQueryInterface_a3613e6f361a95aa7d8bd166a4680eb0d} method, they are {\bfseries{queued}}, so that the {\bfseries{execution order is guaranteed}}. Even a database switch, actuated by means of the \doxyref{THdb\+Base\+::set\+Type}{p.}{classTHdbBase_a45720d6d9c0b3f9815ae1df12a82f333} method, is enqueued just like any other database request, so that if you send subsequently
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{query1-\/>execute();}
+\DoxyCodeLine{query2-\/>execute();}
+\DoxyCodeLine{thdbBaseObject-\/>setType(THdbBase::User, DbConnectionParams(...));}
+\DoxyCodeLine{query3-\/>execute();}
+
+\end{DoxyCode}
+
+
+then query1 and query2 are executed, in order, then another connection is opened to the database specified in \doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams} and query3 is sent to the new database. 
+
+\doxysubsection*{Demo example}
+
+Under the directory {\bfseries{example/thdb\+Demo}} you\textquotesingle{}ll find a simple example of an application that executes a query and shows the results on a QTable\+Widget. The query is executed in the database thread and the table is populated on data available notification. Database messages are used to display the success or failure of each phase of the database interaction. You may want to have a look at the example as starting point. 
+
+\doxysubsubsection*{Example}
+
+As an example, suppose we have to connect to a database whose schema name is {\itshape snap} and we have to retrieve a list of {\itshape contexts} by means of a simple query.
+
+\begin{DoxyParagraph}{Implementation of a Db\+Query\+Interface class}
+
+\end{DoxyParagraph}
+We must derive from \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} and implement the two pure virtual methods 
+\begin{DoxyItemize}
+\item QString query(unsigned id) const; 
+\item void notify(const QSql\+Query\&, const int event\+Id); 
+\end{DoxyItemize}The query() method is called by the database thread when it\textquotesingle{}s time to execute the query, normally when the \doxyref{Db\+Query\+Interface\+::execute()}{p.}{classDbQueryInterface_a3613e6f361a95aa7d8bd166a4680eb0d} method is invoked. ~\newline
+ The notify() method is invoked when the query is executed and the query result is passed as parameter, together with an {\bfseries{event\+Id}} integer identifying the query id with which the execute was called. ~\newline
+ You might not need to specify a query id when calling execute(), and in fact in that case it defaults to -\/1. Yet, since the query is executed in another thread and you may want to queue more than one query at once, on result notification you may be interested in recognizing the query your result comes from. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{ \#include <DbQueryInterface>}}
+\DoxyCodeLine{\textcolor{keyword}{class }CtxListQuery : \textcolor{keyword}{public} DbQueryInterface}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    Q\_OBJECT}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{comment}{// the class constructor}}
+\DoxyCodeLine{    CtxListQuery(QObject *parent = NULL);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// the notify method, must be reimplemented because pure virtual}}
+\DoxyCodeLine{    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} notify(\textcolor{keyword}{const} QSqlQuery\&, \textcolor{keyword}{const} \textcolor{keywordtype}{int} eventId);}
+\DoxyCodeLine{    \textcolor{comment}{// this is normally not reimplemented, but you may want to do something}}
+\DoxyCodeLine{    \textcolor{comment}{// before executing the query}}
+\DoxyCodeLine{    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} execute(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = -\/1);}
+\DoxyCodeLine{    \textcolor{comment}{// simply must return the query as string.}}
+\DoxyCodeLine{    \textcolor{keyword}{virtual} QString query(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{signals:}
+\DoxyCodeLine{    \textcolor{comment}{// this signal is emitted by my CtxListQuery class when data is ready.}}
+\DoxyCodeLine{    \textcolor{comment}{// Inside notify(), query results are extracted and placed in a list}}
+\DoxyCodeLine{    \textcolor{comment}{// of ContextData objects.}}
+\DoxyCodeLine{    \textcolor{comment}{// It is not relevant for this purpose to know what ContextData is like,}}
+\DoxyCodeLine{    \textcolor{comment}{// anyway the class definition is reported below.}}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} listReady(\textcolor{keyword}{const} QList<ContextData>\&);}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// class ContextData: contains a bunch of strings and an integer}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }ContextData}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    ContextData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{short} id;}
+\DoxyCodeLine{    QString time;}
+\DoxyCodeLine{    QString name, author, reason, description;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection*{Implementing the Ctx\+List\+Query class}
+
+The implementation of the Ctx\+List\+Query class is very simple
+
+\begin{DoxyParagraph}{Ctx\+List\+Query implementation}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}ctxlistquery.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <QSqlQuery>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <QSqlRecord>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <QVariant>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{CtxListQuery::CtxListQuery(QObject *parent) : DbQueryInterface(parent)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} CtxListQuery::notify(\textcolor{keyword}{const} QSqlQuery\& constQuery, \textcolor{keyword}{const} \textcolor{keywordtype}{int} eventId)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{comment}{// list of data to fill in}}
+\DoxyCodeLine{    QList<ContextData> ctxDataList;}
+\DoxyCodeLine{    QSqlQuery q(constQuery);}
+\DoxyCodeLine{    \textcolor{comment}{// in this case the query contains 6 fields}}
+\DoxyCodeLine{    \textcolor{keywordflow}{while}(q.next() \&\& q.record().count() == 6)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        ContextData cd;}
+\DoxyCodeLine{        \textcolor{comment}{// use QSqlRecord and QSqlQuery methods to extract}}
+\DoxyCodeLine{        \textcolor{comment}{// data from the query}}
+\DoxyCodeLine{        cd.id = q.value(0).toInt();}
+\DoxyCodeLine{        cd.time = q.value(1).toString();}
+\DoxyCodeLine{        cd.name = q.value(2).toString();}
+\DoxyCodeLine{        cd.author = q.value(3).toString();}
+\DoxyCodeLine{        cd.reason = q.value(4).toString();}
+\DoxyCodeLine{        cd.description = q.value(5).toString();}
+\DoxyCodeLine{        ctxDataList << cd;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{comment}{// this was our signal to notify the result}}
+\DoxyCodeLine{    emit listReady(ctxDataList);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} CtxListQuery::execute(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{comment}{// simply call base implementation in this case}}
+\DoxyCodeLine{    DbQueryInterface::execute(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{QString CtxListQuery::query(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{id})\textcolor{keyword}{ const}}
+\DoxyCodeLine{\textcolor{keyword}{}\{}
+\DoxyCodeLine{    \textcolor{comment}{// create our sql query and return it as a QString}}
+\DoxyCodeLine{    QString q = \textcolor{stringliteral}{"{}SELECT * from context"{}};}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} q;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+
+
+\doxysubsubsection*{Connecting to the database and executing the query }
+
+A \doxyref{THdb\+Base}{p.}{classTHdbBase} object (or a derived class) must be created. Then you must register your Ctx\+List\+Query via the \doxyref{THdb\+Base\+::register\+Db\+Query}{p.}{classTHdbBase_a5a3e96123fd4d5a84799b48d6536c4d1} method
+
+\begin{DoxyParagraph}{Database connection and query execution}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CtxListQuery *ctxListQuery = \textcolor{keyword}{new} CtxListQuery(\textcolor{keyword}{this});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// use the listReadySignal to obtain query results when the}}
+\DoxyCodeLine{\textcolor{comment}{// query has been executed}}
+\DoxyCodeLine{connect(ctxListQuery, SIGNAL(listReady(\textcolor{keyword}{const} QList<ContextData>\&)), \textcolor{keyword}{this},}
+\DoxyCodeLine{    SLOT(contextListReady(\textcolor{keyword}{const} QList<ContextData>\&)));}
+\DoxyCodeLine{}
+\DoxyCodeLine{THdbBase *thdbBase = \textcolor{keyword}{new} THdbBase(\textcolor{keyword}{this});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// registerDbQuery is called with a string and the object to register}}
+\DoxyCodeLine{\textcolor{comment}{// the string is useful to obtain the ctxListQuery back with the}}
+\DoxyCodeLine{\textcolor{comment}{// THdbBase::dbQueryInterface method}}
+\DoxyCodeLine{thdbBase-\/>registerDbQuery(\textcolor{stringliteral}{"{}CtxListQuery"{}}, ctxListQuery);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// now you are ready to execute the query by calling the execute method}}
+\DoxyCodeLine{\textcolor{comment}{// on the ctxListQuery. You can also connect the clicked signal of a push}}
+\DoxyCodeLine{\textcolor{comment}{// button to the execute slot of the ctxListQuery object, like this}}
+\DoxyCodeLine{connect(pushButtonExecQuery, SIGNAL(clicked()), ctxListQuery, SLOT(execute()));}
+
+\end{DoxyCode}
+
+\end{DoxyParagraph}

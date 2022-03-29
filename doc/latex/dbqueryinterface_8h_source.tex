@@ -1,0 +1,50 @@
+\doxysection{dbqueryinterface.\+h}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DBQUERYINTERFACE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DBQUERYINTERFACE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }QSqlQuery;}
+\DoxyCodeLine{8 \textcolor{keyword}{class }DbQueryEvent;}
+\DoxyCodeLine{9 \textcolor{keyword}{class }THdbBase;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{61 \textcolor{keyword}{class }DbQueryInterface : \textcolor{keyword}{public} QObject}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     Q\_OBJECT}
+\DoxyCodeLine{64 \textcolor{keyword}{public}:}
+\DoxyCodeLine{69     \textcolor{keyword}{explicit} DbQueryInterface(QObject *parent = NULL);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{81     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} notify(\textcolor{keyword}{const} QSqlQuery\& queryResult, \textcolor{keyword}{const} \textcolor{keywordtype}{int} eventId) = 0;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{99     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} execute(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = -\/1);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{112     \textcolor{keyword}{virtual} QString query(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{118     QString interfaceName()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_interfaceName; \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{125     \textcolor{keywordtype}{void} setInterfaceName(\textcolor{keyword}{const} QString\& name) \{ m\_interfaceName = name; \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{keywordtype}{void} setId(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i) \{ m\_id = i; \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{139     \textcolor{keywordtype}{bool} event(QEvent *e);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 signals:}
+\DoxyCodeLine{155     \textcolor{keywordtype}{void} executeSignal(\textcolor{keyword}{const} QString\& interfaceName, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{keyword}{private}:}
+\DoxyCodeLine{160     QString m\_interfaceName;}
+\DoxyCodeLine{161     \textcolor{keywordtype}{int} m\_id;}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \};}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DBQUERYINTERFACE\_H}}
+
+\end{DoxyCode}

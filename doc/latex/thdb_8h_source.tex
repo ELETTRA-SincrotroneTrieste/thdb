@@ -1,0 +1,67 @@
+\doxysection{thdb.\+h}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef THDB\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define THDB\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QVector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QDateTime>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}thdbbase.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }APTData;}
+\DoxyCodeLine{10 \textcolor{keyword}{class }AMTData;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }THdb : \textcolor{keyword}{public} THdbBase}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     Q\_OBJECT}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{37     THdb(QObject *parent = 0);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \string~THdb();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} getData(\textcolor{keyword}{const} QString\& source, \textcolor{keyword}{const} QDateTime\& startDate, \textcolor{keyword}{const} QDateTime\& stopDate);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} isArchived(\textcolor{keyword}{const} QString\& source);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} getAptData(\textcolor{keyword}{const} QString\& source);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} getAmtData(\textcolor{keyword}{const} QString\& source);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} getArchivedSources();}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 signals:}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{133     \textcolor{keywordtype}{void} archivedSourcesListReady(\textcolor{keyword}{const} QStringList \&sources);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{147     \textcolor{keywordtype}{void} dataAvailable(\textcolor{keyword}{const} QString\& source, \textcolor{keyword}{const} QVector<double >\& xData,}
+\DoxyCodeLine{148                        \textcolor{keyword}{const} QVector<double> \& yData);}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{158     \textcolor{keywordtype}{void} dataSetPointAvailable(\textcolor{keyword}{const} QString\& source, \textcolor{keyword}{const} QVector<double>\& xData,}
+\DoxyCodeLine{159                                \textcolor{keyword}{const} QVector<double> \& yData);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{169     \textcolor{keywordtype}{void} aptDataReady(\textcolor{keyword}{const} QString\& source, \textcolor{keyword}{const} APTData \&data);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{179     \textcolor{keywordtype}{void} amtDataReady(\textcolor{keyword}{const} QString\& source, \textcolor{keyword}{const} AMTData \&data);}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{186     \textcolor{keywordtype}{void} isArchived(\textcolor{keyword}{const} QString\& source, \textcolor{keywordtype}{bool} archived);}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{keyword}{protected} slots:}
+\DoxyCodeLine{191     \textcolor{keywordtype}{void} d\_getScalarData(\textcolor{keyword}{const} QString\&, \textcolor{keywordtype}{int}, \textcolor{keywordtype}{int} writable, \textcolor{keyword}{const} QDateTime\&, \textcolor{keyword}{const} QDateTime\&);}
+\DoxyCodeLine{192     \textcolor{keywordtype}{void} d\_getAptData(\textcolor{keyword}{const} QString\&, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{193     \textcolor{keywordtype}{void} d\_getAmtData(\textcolor{keyword}{const} QString\& source, \textcolor{keywordtype}{int} attId);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 \textcolor{keyword}{private}:}
+\DoxyCodeLine{196 \};}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// THDB\_H}}
+
+\end{DoxyCode}

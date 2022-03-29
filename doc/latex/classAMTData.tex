@@ -1,0 +1,122 @@
+\doxysection{AMTData Class Reference}
+\label{classAMTData}\index{AMTData@{AMTData}}
+
+
+a simple class whose members store the amt data retrieved from the historical (temporary) database amt table.  
+
+
+
+
+{\ttfamily \#include $<$amtdata.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ AMTData} ()
+\begin{DoxyCompactList}\small\item\em the class constructor. It does nothing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \textbf{ att\+Id}
+\begin{DoxyCompactList}\small\item\em the attribute ID as stored in the ID column of the amt table in the historical or temporary database. \end{DoxyCompactList}\item 
+QString \textbf{ archiver}
+\begin{DoxyCompactList}\small\item\em stores the archiver field in the amt table of the hdb database \end{DoxyCompactList}\item 
+QDate\+Time \textbf{ start\+Date}
+\begin{DoxyCompactList}\small\item\em stores the start\+\_\+date field of the amt table. \end{DoxyCompactList}\item 
+QDate\+Time \textbf{ stop\+Date}
+\begin{DoxyCompactList}\small\item\em stores the stop\+\_\+date field of the amt table. \end{DoxyCompactList}\item 
+unsigned \textbf{ per\+Mod}
+\begin{DoxyCompactList}\small\item\em stores the per\+\_\+mod of the amt table \end{DoxyCompactList}\item 
+unsigned \textbf{ per\+Per\+Mod}
+\begin{DoxyCompactList}\small\item\em stores the per\+\_\+per\+\_\+mod of the amt table \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class members are all public. The amt table is described as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+\DoxyCodeLine{| Field             | Type                          | Null | Key | Default | Extra |}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+\DoxyCodeLine{| ID                | smallint(5) unsigned zerofill | NO   | MUL | 00000   |       |}
+\DoxyCodeLine{| archiver          | varchar(255)                  | NO   |     |         |       |}
+\DoxyCodeLine{| start\_date        | datetime                      | YES  |     | NULL    |       |}
+\DoxyCodeLine{| stop\_date         | datetime                      | YES  |     | NULL    |       |}
+\DoxyCodeLine{| per\_mod           | \textcolor{keywordtype}{int}(1)                        | NO   |     | 0       |       |}
+\DoxyCodeLine{| per\_per\_mod       | \textcolor{keywordtype}{int}(5)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| abs\_mod           | \textcolor{keywordtype}{int}(1)                        | NO   |     | 0       |       |}
+\DoxyCodeLine{| per\_abs\_mod       | \textcolor{keywordtype}{int}(5)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| dec\_del\_abs\_mod   | \textcolor{keywordtype}{double}                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| gro\_del\_abs\_mod   | \textcolor{keywordtype}{double}                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| rel\_mod           | \textcolor{keywordtype}{int}(1)                        | NO   |     | 0       |       |}
+\DoxyCodeLine{| per\_rel\_mod       | \textcolor{keywordtype}{int}(5)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| n\_percent\_rel\_mod | \textcolor{keywordtype}{double}                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| p\_percent\_rel\_mod | \textcolor{keywordtype}{double}                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| thr\_mod           | \textcolor{keywordtype}{int}(1)                        | NO   |     | 0       |       |}
+\DoxyCodeLine{| per\_thr\_mod       | \textcolor{keywordtype}{int}(5)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| min\_val\_thr\_mod   | \textcolor{keywordtype}{double}                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| max\_val\_thr\_mod   | \textcolor{keywordtype}{double}                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| cal\_mod           | \textcolor{keywordtype}{int}(1)                        | NO   |     | 0       |       |}
+\DoxyCodeLine{| per\_cal\_mod       | \textcolor{keywordtype}{int}(5)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| val\_cal\_mod       | \textcolor{keywordtype}{int}(3)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| type\_cal\_mod      | \textcolor{keywordtype}{int}(2)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| algo\_cal\_mod      | varchar(20)                   | YES  |     | NULL    |       |}
+\DoxyCodeLine{| dif\_mod           | \textcolor{keywordtype}{int}(1)                        | NO   |     | 0       |       |}
+\DoxyCodeLine{| per\_dif\_mod       | \textcolor{keywordtype}{int}(5)                        | YES  |     | NULL    |       |}
+\DoxyCodeLine{| ext\_mod           | \textcolor{keywordtype}{int}(1)                        | NO   |     | 0       |       |}
+\DoxyCodeLine{| refresh\_mode      | tinyint(4)                    | YES  |     | 0       |       |}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+
+\end{DoxyCode}
+ but the \doxyref{AMTData}{p.}{classAMTData} class simply returns some of the items in the table. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classAMTData_a4df8940759d517176b8f2a9c88e7126c}} 
+\index{AMTData@{AMTData}!AMTData@{AMTData}}
+\index{AMTData@{AMTData}!AMTData@{AMTData}}
+\doxysubsubsection{AMTData()}
+{\footnotesize\ttfamily AMTData\+::\+AMTData (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classAMTData_a669f6b2030371129508ac208f8a7c7bb}} 
+\index{AMTData@{AMTData}!archiver@{archiver}}
+\index{archiver@{archiver}!AMTData@{AMTData}}
+\doxysubsubsection{archiver}
+{\footnotesize\ttfamily QString AMTData\+::archiver}
+
+\mbox{\label{classAMTData_a923f53e46186d91d7ca446c63a569117}} 
+\index{AMTData@{AMTData}!attId@{attId}}
+\index{attId@{attId}!AMTData@{AMTData}}
+\doxysubsubsection{attId}
+{\footnotesize\ttfamily unsigned AMTData\+::att\+Id}
+
+\mbox{\label{classAMTData_a65d845e2b299cd1c5e05196cdc3c037f}} 
+\index{AMTData@{AMTData}!perMod@{perMod}}
+\index{perMod@{perMod}!AMTData@{AMTData}}
+\doxysubsubsection{perMod}
+{\footnotesize\ttfamily unsigned AMTData\+::per\+Mod}
+
+\mbox{\label{classAMTData_ae17368be0055f0b8c10dc778a03859e3}} 
+\index{AMTData@{AMTData}!perPerMod@{perPerMod}}
+\index{perPerMod@{perPerMod}!AMTData@{AMTData}}
+\doxysubsubsection{perPerMod}
+{\footnotesize\ttfamily unsigned AMTData\+::per\+Per\+Mod}
+
+\mbox{\label{classAMTData_ae3ab27f4fd2c6c825d00fbd3c765a39e}} 
+\index{AMTData@{AMTData}!startDate@{startDate}}
+\index{startDate@{startDate}!AMTData@{AMTData}}
+\doxysubsubsection{startDate}
+{\footnotesize\ttfamily QDate\+Time AMTData\+::start\+Date}
+
+\mbox{\label{classAMTData_a038e8e37f00256983cb2a2d8b7aa66b6}} 
+\index{AMTData@{AMTData}!stopDate@{stopDate}}
+\index{stopDate@{stopDate}!AMTData@{AMTData}}
+\doxysubsubsection{stopDate}
+{\footnotesize\ttfamily QDate\+Time AMTData\+::stop\+Date}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ amtdata.\+h}\end{DoxyCompactItemize}

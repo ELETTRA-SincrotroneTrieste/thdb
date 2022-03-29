@@ -1,0 +1,78 @@
+\doxysection{thdbbase.\+h}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef THDBBASE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define THDBBASE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QVector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QDateTime>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }THdbBasePrivate;}
+\DoxyCodeLine{9 \textcolor{keyword}{class }DbQueryInterface;}
+\DoxyCodeLine{10 \textcolor{keyword}{class }DbConnectionParams;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }APTInfo;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{34 \textcolor{keyword}{class }THdbBase : \textcolor{keyword}{public} QObject}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     Q\_OBJECT}
+\DoxyCodeLine{37 \textcolor{keyword}{public}:}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \textcolor{keyword}{static} QString version();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{49     \textcolor{keyword}{enum} Type \{ Unspecified = -\/1, Historical = 0, Temporary = 1, Snap = 2, User = 100 \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{68     THdbBase(QObject *parent = 0);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{76     \textcolor{keyword}{virtual} \string~THdbBase();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{87     Type type() \textcolor{keyword}{const};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} setType(Type t, \textcolor{keyword}{const} DbConnectionParams \&dbCp);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} setConnectionParameters(\textcolor{keyword}{const} DbConnectionParams \&dbCp);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} registerDbQuery(\textcolor{keyword}{const} QString\& name, DbQueryInterface *dbQuery);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{128     \textcolor{keywordtype}{void} unregisterDbQuery(\textcolor{keyword}{const} QString\& name);}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{139     DbQueryInterface *dbQueryInterface(\textcolor{keyword}{const} QString\& name);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{148     QStringList registeredQueryInterfaces() \textcolor{keyword}{const};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{keyword}{protected} slots:}
+\DoxyCodeLine{162     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} executeQuery(\textcolor{keyword}{const} QString\& interfaceName, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{170     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} onThreadStarted() \{\};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 signals:}
+\DoxyCodeLine{173     \textcolor{keywordtype}{void} databaseTypeChanged(THdbBase::Type t);}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{179     \textcolor{keywordtype}{void} databaseOpen();}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{184     \textcolor{keywordtype}{void} dbThreadStarted();}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{189     \textcolor{keywordtype}{void} dbThreadFinished();}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{197     \textcolor{keywordtype}{void} querySent();}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{204     \textcolor{keywordtype}{void} queryExecuted(\textcolor{keywordtype}{bool} result);}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{214     \textcolor{keywordtype}{void} databaseError(\textcolor{keyword}{const} QString\& origin, \textcolor{keyword}{const} QString\& lastErrorMessage);}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{225     \textcolor{keywordtype}{void} dbConnectionInfo(\textcolor{keyword}{const} QString \&info);}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{keyword}{private}:}
+\DoxyCodeLine{230     Q\_DECLARE\_PRIVATE(THdbBase);}
+\DoxyCodeLine{231     THdbBasePrivate * d\_ptr;}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233 \};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// THDB\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,47 @@
+release_1_0_4:
+
+    Fixes and extends the functionalities introduced in 1.0.3, now specializing the
+    queries for read only and read write attributes data retrieval.
+    If no data is stored between the desired start and stop date, then the database
+    is looked for the latest available data preceding the desired start date. When found,
+    the start date is set equal to the desired start date and the latest available data
+    is automatically associated to the desired start date.
+
+    private/queries/attidquery.h:
+    private/queries/idinfo.cpp:
+    private/queries/attidquery.cpp: separate management of read only/read write attributes
+
+    private/queries/datainfo.cpp: looks back into the database for the latest available data,
+                                  changing the start date according to the desired start date
+                                  and setting the value to the latest available value preceding
+                                  the desired start date.
+
+    private/queries/scalarnumbersquery.cpp: when creating DataInfo, sets the writable boolean flag
+                                            in order to specialize the query for read only and
+                                            read write attributes.
+release_1_0_3:
+
+Relevant changes:
+
+1.    private/queries/datainfo.cpp: changed query from:
+         "SELECT * FROM att_%1 WHERE time >= '%2' AND time <= '%3'"
+    to:
+        "SELECT * FROM att_%1 WHERE time >= '%2' AND time <= '%3' "
+        " UNION (SELECT * FROM att_%1 WHERE time < '%2' ORDER BY time DESC LIMIT 1) ORDER BY time"
+
+     If there is no data in the time interval specified, then this query retrieves the first
+     available value in the history, looking back before the start date.
+
+2.     private/queries/sourceslistquery.cpp: changed query from:
+        "select adt.full_name from adt,apt where apt.ID=adt.ID"
+     to:
+        "select adt.full_name from adt,apt where apt.ID=adt.ID ORDER BY adt.full_name"
+
+3. widgets: added drag drop. Some other changes.
+
+4. Added THdbViewer application to utils/thdb distribution.
+
+release_1_0_2: MYSQL_OPT_RECONNECT=1 to enable database reconnection.
+
+release_1_0_1: first release installed. Used by saverestore.
+

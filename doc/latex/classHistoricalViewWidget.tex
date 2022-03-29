@@ -1,0 +1,143 @@
+\doxysection{Historical\+View\+Widget Class Reference}
+\label{classHistoricalViewWidget}\index{HistoricalViewWidget@{HistoricalViewWidget}}
+
+
+this class is a stacked widget that groups different types of widgets, each one tailored to display specific types of data recollected by the historical database.  
+
+
+
+
+{\ttfamily \#include $<$historicalviewwidget.\+h$>$}
+
+Inheritance diagram for Historical\+View\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHistoricalViewWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Data\+Type} \{ \newline
+\textbf{ Number\+Scalar}
+, \textbf{ Number\+Vector}
+, \textbf{ String\+Scalar}
+, \textbf{ String\+Vector}
+, \newline
+\textbf{ State}
+, \textbf{ State\+Vector}
+, \textbf{ User} = 100
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Historical\+View\+Widget} (QWidget $\ast$parent)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$\+Historical\+View\+Widget} ()
+\item 
+virtual void \textbf{ register\+Widget} (QWidget $\ast$w, \textbf{ Data\+Type} t)
+\begin{DoxyCompactList}\small\item\em inserts into the stacked widget the widget w and associates it to the Data\+Type t. \end{DoxyCompactList}\item 
+virtual void \textbf{ switch\+Widget} (\textbf{ Data\+Type} t)
+\begin{DoxyCompactList}\small\item\em changes the current displayed widget so that the one associated to the Data\+Type t is shown. \end{DoxyCompactList}\item 
+QWidget $\ast$ \textbf{ widget} (\textbf{ Data\+Type} t)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Instantiate a \doxyref{Historical\+View\+Widget}{p.}{classHistoricalViewWidget} and then register a specific widget associated to a specific Data\+Type. Then the switch\+Widget method will display the correct widget according to the Data\+Type in use. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3}} 
+\index{HistoricalViewWidget@{HistoricalViewWidget}!DataType@{DataType}}
+\index{DataType@{DataType}!HistoricalViewWidget@{HistoricalViewWidget}}
+\doxysubsubsection{DataType}
+{\footnotesize\ttfamily enum \textbf{ Historical\+View\+Widget\+::\+Data\+Type}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NumberScalar@{NumberScalar}!HistoricalViewWidget@{HistoricalViewWidget}}\index{HistoricalViewWidget@{HistoricalViewWidget}!NumberScalar@{NumberScalar}}}\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3a51e44b2f752e678ea7a0c5a4a17524ce}} 
+Number\+Scalar&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NumberVector@{NumberVector}!HistoricalViewWidget@{HistoricalViewWidget}}\index{HistoricalViewWidget@{HistoricalViewWidget}!NumberVector@{NumberVector}}}\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3a1dd3fa797ab442913869d3839adbd502}} 
+Number\+Vector&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StringScalar@{StringScalar}!HistoricalViewWidget@{HistoricalViewWidget}}\index{HistoricalViewWidget@{HistoricalViewWidget}!StringScalar@{StringScalar}}}\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3a8e3a7a91aafc6a99f092956e4f07054d}} 
+String\+Scalar&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StringVector@{StringVector}!HistoricalViewWidget@{HistoricalViewWidget}}\index{HistoricalViewWidget@{HistoricalViewWidget}!StringVector@{StringVector}}}\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3a45c3a1c2a50019569c2a4066f256a8a7}} 
+String\+Vector&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{State@{State}!HistoricalViewWidget@{HistoricalViewWidget}}\index{HistoricalViewWidget@{HistoricalViewWidget}!State@{State}}}\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3a3391be73b6f0f21372b1420cd4aa83c6}} 
+State&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StateVector@{StateVector}!HistoricalViewWidget@{HistoricalViewWidget}}\index{HistoricalViewWidget@{HistoricalViewWidget}!StateVector@{StateVector}}}\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3a0e57479dd4220c3b3da1189c95d02d71}} 
+State\+Vector&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{User@{User}!HistoricalViewWidget@{HistoricalViewWidget}}\index{HistoricalViewWidget@{HistoricalViewWidget}!User@{User}}}\mbox{\label{classHistoricalViewWidget_a3619f3c8a3c692f8db3082ca41abaab3ab8263aceb126274d8e13ec800b377f24}} 
+User&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classHistoricalViewWidget_ae76bb538200439aa2486d645decafe05}} 
+\index{HistoricalViewWidget@{HistoricalViewWidget}!HistoricalViewWidget@{HistoricalViewWidget}}
+\index{HistoricalViewWidget@{HistoricalViewWidget}!HistoricalViewWidget@{HistoricalViewWidget}}
+\doxysubsubsection{HistoricalViewWidget()}
+{\footnotesize\ttfamily Historical\+View\+Widget\+::\+Historical\+View\+Widget (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent }\end{DoxyParamCaption})}
+
+Builds a QStacked\+Widget. \mbox{\label{classHistoricalViewWidget_a0a31fa02268f0e3affbfda741711d74a}} 
+\index{HistoricalViewWidget@{HistoricalViewWidget}!````~HistoricalViewWidget@{$\sim$HistoricalViewWidget}}
+\index{````~HistoricalViewWidget@{$\sim$HistoricalViewWidget}!HistoricalViewWidget@{HistoricalViewWidget}}
+\doxysubsubsection{$\sim$HistoricalViewWidget()}
+{\footnotesize\ttfamily virtual Historical\+View\+Widget\+::$\sim$\+Historical\+View\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classHistoricalViewWidget_afd9d5326cb1c02efbae5159b7e545a37}} 
+\index{HistoricalViewWidget@{HistoricalViewWidget}!registerWidget@{registerWidget}}
+\index{registerWidget@{registerWidget}!HistoricalViewWidget@{HistoricalViewWidget}}
+\doxysubsubsection{registerWidget()}
+{\footnotesize\ttfamily virtual void Historical\+View\+Widget\+::register\+Widget (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{w,  }\item[{\textbf{ Data\+Type}}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+You have to call switch\+Widget method to later display the correct widget in the stack.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{switch\+Widget}{p.}{classHistoricalViewWidget_ad0e0892bf8ed2cd8f7facef5afa7ba81} 
+\end{DoxySeeAlso}
+\mbox{\label{classHistoricalViewWidget_ad0e0892bf8ed2cd8f7facef5afa7ba81}} 
+\index{HistoricalViewWidget@{HistoricalViewWidget}!switchWidget@{switchWidget}}
+\index{switchWidget@{switchWidget}!HistoricalViewWidget@{HistoricalViewWidget}}
+\doxysubsubsection{switchWidget()}
+{\footnotesize\ttfamily virtual void Historical\+View\+Widget\+::switch\+Widget (\begin{DoxyParamCaption}\item[{\textbf{ Data\+Type}}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & the data type, a value among the ones defined in Data\+Type enumeration.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{register\+Widget}{p.}{classHistoricalViewWidget_afd9d5326cb1c02efbae5159b7e545a37}
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+if no widget was registered with the Data\+Type t, then no action is performed. 
+\end{DoxyNote}
+\mbox{\label{classHistoricalViewWidget_a2d300699c029cf8cb1b81f9c9e6ee79c}} 
+\index{HistoricalViewWidget@{HistoricalViewWidget}!widget@{widget}}
+\index{widget@{widget}!HistoricalViewWidget@{HistoricalViewWidget}}
+\doxysubsubsection{widget()}
+{\footnotesize\ttfamily QWidget $\ast$ Historical\+View\+Widget\+::widget (\begin{DoxyParamCaption}\item[{\textbf{ Data\+Type}}]{t }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ historicalviewwidget.\+h}\end{DoxyCompactItemize}

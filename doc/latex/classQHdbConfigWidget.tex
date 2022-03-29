@@ -1,0 +1,144 @@
+\doxysection{QHdb\+Config\+Widget Class Reference}
+\label{classQHdbConfigWidget}\index{QHdbConfigWidget@{QHdbConfigWidget}}
+
+
+a configuration widget for the historical database.  
+
+
+
+
+{\ttfamily \#include $<$qhdbconfigwidget.\+h$>$}
+
+Inheritance diagram for QHdb\+Config\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQHdbConfigWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ source\+Removed} (const QString \&src)
+\item 
+void \textbf{ view\+Clicked} ()
+\item 
+void \textbf{ cancel\+Clicked} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ QHdb\+Config\+Widget} (QWidget $\ast$parent=0)
+\item 
+virtual \textbf{ $\sim$\+QHdb\+Config\+Widget} ()
+\item 
+QDate\+Time \textbf{ start\+Date\+Time} () const
+\item 
+QDate\+Time \textbf{ stop\+Date\+Time} () const
+\item 
+QString\+List \textbf{ sources} () const
+\item 
+void \textbf{ set\+Sources} (const QString\+List \&src)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ remove\+Source\+Clicked} ()
+\item 
+void \textbf{ add\+Source\+Clicked} ()
+\item 
+void \textbf{ last\+Days\+Hours\+Changed} ()
+\item 
+void \textbf{ init} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This widget contains a set of controls to get data from the historical database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classQHdbConfigWidget_a5f2e81dd2d50b85935f284ba8df6552f}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!QHdbConfigWidget@{QHdbConfigWidget}}
+\index{QHdbConfigWidget@{QHdbConfigWidget}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{QHdbConfigWidget()}
+{\footnotesize\ttfamily QHdb\+Config\+Widget\+::\+QHdb\+Config\+Widget (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\label{classQHdbConfigWidget_a9085255c449d7313bedf03e2ffc9d926}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!````~QHdbConfigWidget@{$\sim$QHdbConfigWidget}}
+\index{````~QHdbConfigWidget@{$\sim$QHdbConfigWidget}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{$\sim$QHdbConfigWidget()}
+{\footnotesize\ttfamily virtual QHdb\+Config\+Widget\+::$\sim$\+QHdb\+Config\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classQHdbConfigWidget_a28e1c5a153fee040c5ddf19c6be6d7c2}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!addSourceClicked@{addSourceClicked}}
+\index{addSourceClicked@{addSourceClicked}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{addSourceClicked}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::add\+Source\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classQHdbConfigWidget_a0d3aae082823f567bbbe0d5d6a6b70fe}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!cancelClicked@{cancelClicked}}
+\index{cancelClicked@{cancelClicked}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{cancelClicked}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::cancel\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classQHdbConfigWidget_a3891cceaa1fd0da3d8ae848a075e7b68}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!init@{init}}
+\index{init@{init}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{init}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classQHdbConfigWidget_af87786825db2c6cd5b80957b327d2957}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!lastDaysHoursChanged@{lastDaysHoursChanged}}
+\index{lastDaysHoursChanged@{lastDaysHoursChanged}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{lastDaysHoursChanged}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::last\+Days\+Hours\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classQHdbConfigWidget_a480a112000140b0ae5a5eae3663753a6}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!removeSourceClicked@{removeSourceClicked}}
+\index{removeSourceClicked@{removeSourceClicked}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{removeSourceClicked}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::remove\+Source\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\mbox{\label{classQHdbConfigWidget_a57c06e4377b655a2f1e88f7ad9fc7eba}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!setSources@{setSources}}
+\index{setSources@{setSources}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{setSources()}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::set\+Sources (\begin{DoxyParamCaption}\item[{const QString\+List \&}]{src }\end{DoxyParamCaption})}
+
+\mbox{\label{classQHdbConfigWidget_a3552ae340c41c1a0490dc92dfb1d09a3}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!sourceRemoved@{sourceRemoved}}
+\index{sourceRemoved@{sourceRemoved}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{sourceRemoved}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::source\+Removed (\begin{DoxyParamCaption}\item[{const QString \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{classQHdbConfigWidget_a9e297b3bfaa6d4320c08edf41b2e087e}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!sources@{sources}}
+\index{sources@{sources}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{sources()}
+{\footnotesize\ttfamily QString\+List QHdb\+Config\+Widget\+::sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classQHdbConfigWidget_a4effe78d0d55c930f32121fd72c248da}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!startDateTime@{startDateTime}}
+\index{startDateTime@{startDateTime}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{startDateTime()}
+{\footnotesize\ttfamily QDate\+Time QHdb\+Config\+Widget\+::start\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classQHdbConfigWidget_a41f7d68b62d99fe0d81d0311d266f0bf}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!stopDateTime@{stopDateTime}}
+\index{stopDateTime@{stopDateTime}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{stopDateTime()}
+{\footnotesize\ttfamily QDate\+Time QHdb\+Config\+Widget\+::stop\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{classQHdbConfigWidget_a961e2e9dfba26cd15a2cd81ac09879cd}} 
+\index{QHdbConfigWidget@{QHdbConfigWidget}!viewClicked@{viewClicked}}
+\index{viewClicked@{viewClicked}!QHdbConfigWidget@{QHdbConfigWidget}}
+\doxysubsubsection{viewClicked}
+{\footnotesize\ttfamily void QHdb\+Config\+Widget\+::view\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ qhdbconfigwidget.\+h}\end{DoxyCompactItemize}

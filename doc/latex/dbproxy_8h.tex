@@ -1,0 +1,15 @@
+\doxysection{dbproxy.\+h File Reference}
+\label{dbproxy_8h}\index{dbproxy.h@{dbproxy.h}}
+{\ttfamily \#include $<$QThread$>$}\newline
+{\ttfamily \#include $<$QRead\+Write\+Lock$>$}\newline
+{\ttfamily \#include $<$Qt\+Sql/\+QSql\+Database$>$}\newline
+{\ttfamily \#include $<$QDate\+Time$>$}\newline
+{\ttfamily \#include $<$QQueue$>$}\newline
+{\ttfamily \#include \char`\"{}dbconnectionparams.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$QEvent$>$}\newline
+{\ttfamily \#include $<$QCore\+Application$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Db\+Proxy}
+\begin{DoxyCompactList}\small\item\em The database proxy. Connects to the database and executes queries in a separate thread. You better not use it directly, instead look at \doxyref{THdb\+Base}{p.}{classTHdbBase} and \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface} classes. \end{DoxyCompactList}\end{DoxyCompactItemize}

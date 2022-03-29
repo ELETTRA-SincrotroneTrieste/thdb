@@ -1,0 +1,57 @@
+\doxysection{sourcestreewidget.\+h}
+\label{sourcestreewidget_8h_source}\index{sourcestreewidget.h@{sourcestreewidget.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SOURCESTREEWIDGET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SOURCESTREEWIDGET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QTreeWidget>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <thdbsingleton.h>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }THdb;}
+\DoxyCodeLine{8 \textcolor{keyword}{class }SourcesTreeWidgetPrivate;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }SourcesTreeWidget : \textcolor{keyword}{public} QTreeWidget}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     Q\_OBJECT}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \textcolor{keyword}{explicit} SourcesTreeWidget(QWidget *parent = 0);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{27     QStringList getSources() \textcolor{keyword}{const};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{34     QStringList selectedSources() \textcolor{keyword}{const};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} addSource(\textcolor{keyword}{const} QString \&source, \textcolor{keywordtype}{bool} expand);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} updateSourcesList(\textcolor{keyword}{const} QStringList\& sources, \textcolor{keywordtype}{bool} expand = \textcolor{keyword}{false});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} removeSelectedSources();}
+\DoxyCodeLine{57 signals:}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{/* drag */}}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} dragMoveEvent ( QDragMoveEvent * event );}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} dragEnterEvent(QDragEnterEvent *event);}
+\DoxyCodeLine{64     QMimeData * mimeData ( \textcolor{keyword}{const} QList<QTreeWidgetItem *> items ) \textcolor{keyword}{const};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{/* drop */}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} dropEvent(QDropEvent *event);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     QString buildItemText(\textcolor{keyword}{const} QTreeWidgetItem *it) \textcolor{keyword}{const};}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} level( QTreeWidgetItem *it) \textcolor{keyword}{const} ;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     SourcesTreeWidgetPrivate *d\_ptr;}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{private}:}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     Q\_DECLARE\_PRIVATE(SourcesTreeWidget);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ARCHIVEDSOURCESTREEWIDGET\_H}}
+
+\end{DoxyCode}

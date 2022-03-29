@@ -1,0 +1,30 @@
+\doxysection{qhistoricalviewwidgetprivate.\+h}
+\label{qhistoricalviewwidgetprivate_8h_source}\index{qhistoricalviewwidgetprivate.h@{qhistoricalviewwidgetprivate.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef HISTORICALVIEWWIDGETPRIVATE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define HISTORICALVIEWWIDGETPRIVATE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}qhistoricalviewwidget.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QHash>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }QHistoricalViewWidgetPrivate}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     QHistoricalViewWidgetPrivate();}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} addTypeIndex(QHistoricalViewWidget::DataType dd, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} index(QHistoricalViewWidget::DataType dt);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     QHash< QHistoricalViewWidget::DataType, int> m\_typeIndexHash;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// HISTORICALPLOTPRIVATE\_H}}
+
+\end{DoxyCode}

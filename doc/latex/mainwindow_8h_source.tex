@@ -1,0 +1,34 @@
+\doxysection{mainwindow.\+h}
+\label{mainwindow_8h_source}\index{mainwindow.h@{mainwindow.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MAINWINDOW\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MAINWINDOW\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QMainWindow>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }Ui \{}
+\DoxyCodeLine{7     \textcolor{keyword}{class }MainWindow;}
+\DoxyCodeLine{8 \}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }MainWindow : \textcolor{keyword}{public} QMainWindow}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     Q\_OBJECT}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{keyword}{explicit} MainWindow(QWidget *parent = 0);}
+\DoxyCodeLine{16     \string~MainWindow();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     Ui::MainWindow *ui;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} slotViewClicked();}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} slotConfigureClicked();}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} slotPlotHistoricalDataUpdated();}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} slotHdbSelected(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MAINWINDOW\_H}}
+
+\end{DoxyCode}

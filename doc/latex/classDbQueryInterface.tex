@@ -1,0 +1,171 @@
+\doxysection{Db\+Query\+Interface Class Reference}
+\label{classDbQueryInterface}\index{DbQueryInterface@{DbQueryInterface}}
+
+
+Derive from this class to perform threaded queries on a database.  
+
+
+
+
+{\ttfamily \#include $<$dbqueryinterface.\+h$>$}
+
+Inheritance diagram for Db\+Query\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDbQueryInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ execute\+Signal} (const QString \&\textbf{ interface\+Name}, int id)
+\begin{DoxyCompactList}\small\item\em signal connected to \doxyref{THdb\+Base}{p.}{classTHdbBase} to trigger query execution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Db\+Query\+Interface} (QObject $\ast$parent=NULL)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+virtual void \textbf{ notify} (const QSql\+Query \&query\+Result, const int event\+Id)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method that must be implemented in your subclass. \end{DoxyCompactList}\item 
+virtual void \textbf{ execute} (int id=-\/1)
+\begin{DoxyCompactList}\small\item\em Triggers query execution on the Database thread. \end{DoxyCompactList}\item 
+virtual QString \textbf{ query} (int id) const =0
+\begin{DoxyCompactList}\small\item\em Returns the QString representing the query to be executed. \end{DoxyCompactList}\item 
+QString \textbf{ interface\+Name} () const
+\begin{DoxyCompactList}\small\item\em returns the interface name. \end{DoxyCompactList}\item 
+void \textbf{ set\+Interface\+Name} (const QString \&name)
+\begin{DoxyCompactList}\small\item\em changes the interface name \end{DoxyCompactList}\item 
+void \textbf{ set\+Id} (const int i)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ event} (QEvent $\ast$e)
+\begin{DoxyCompactList}\small\item\em Internally used, detects if e is Query\+Result\+Event and calls notify callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxyparagraph*{Description}
+
+This class is a QObject and it is used to perform queries on the database. Queries are executed on a different thread, so that your application will remain fully responsive even during time consuming queries. In order to use \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface}, you must derive it and provide the implementation of the two methods 
+\begin{DoxyItemize}
+\item void \doxyref{notify(const QSql\+Query\&, const int event\+Id)}{p.}{classDbQueryInterface_a6b61df898472b74141437f43b7d5488c} 
+\item QString query(unsigned id) const 
+\end{DoxyItemize}They are two pure virtual methods. 
+
+\doxyparagraph*{The query method}
+
+The query method is invoked when the Database thread needs to know the query string it has to execute. Simply return the query as a string, such as ~\newline
+{\itshape \char`\"{}\+SELECT $\ast$ FROM context\char`\"{}}~\newline
+ 
+
+\doxyparagraph*{The notify method}
+
+This callback is invoked {\bfseries{in the main thread }} after that the data is retrieved from the database, if correctly retrieved. In any case, the QSql\+Query passed in as parameter will contain errors, if they happened. Here you get the result of the query just executed in the database thread, you have to process it as if you did directly use QSql\+Query from Qt SQL module. notify is invoked with an integer as event\+Id, the sami integer that was passed to the execute method. 
+
+\doxyparagraph*{The execute method}
+
+invoke the execute method with an optional integer aimed at identifying the result in the notify method. If you need to call the method more than once and then recognize among the results the originating query, then it is safe to pass an integer to the execute method. ~\newline
+ Otherwise, if you are sure that, in your specific application, each query is executed after the previous has completely ended (such as you click a button, you wait for results to appear in your application, and then perform another query), you may omit the id in the execute method. 
+
+\doxyparagraph*{Signals and slots in \doxyref{Db\+Query\+Interface}{p.}{classDbQueryInterface}}
+
+This class is a QObject so you are free to define signals and slots in order to make it interact with other classes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classDbQueryInterface_a883b19c538fdcf258a8a1b5cae5ec14a}} 
+\index{DbQueryInterface@{DbQueryInterface}!DbQueryInterface@{DbQueryInterface}}
+\index{DbQueryInterface@{DbQueryInterface}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{DbQueryInterface()}
+{\footnotesize\ttfamily Db\+Query\+Interface\+::\+Db\+Query\+Interface (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Note\+: this inherits QObject. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classDbQueryInterface_a464294677fefc71c2a8d0c79b1792722}} 
+\index{DbQueryInterface@{DbQueryInterface}!event@{event}}
+\index{event@{event}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{event()}
+{\footnotesize\ttfamily bool Db\+Query\+Interface\+::event (\begin{DoxyParamCaption}\item[{QEvent $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+If the event type is QResult\+Event, then the notify method is invoked on your subclass implementation. Query\+Result\+Event knows about the query result and the event id. These two parameters are passed to your notify implementation. \mbox{\label{classDbQueryInterface_a3613e6f361a95aa7d8bd166a4680eb0d}} 
+\index{DbQueryInterface@{DbQueryInterface}!execute@{execute}}
+\index{execute@{execute}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{execute()}
+{\footnotesize\ttfamily virtual void Db\+Query\+Interface\+::execute (\begin{DoxyParamCaption}\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+when you call this method, the query execution is triggered and the database thread will execute it as soon as possible. When done, the notify callback is invoked (always in the main thread), so that the results can be parsed and used. \begin{DoxySeeAlso}{See also}
+\doxyref{notify}{p.}{classDbQueryInterface_a6b61df898472b74141437f43b7d5488c}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & if you need to recognize inside the notify method the query that originated the result in notify, then pass a unique id to this method. The id is propagated through all the Database thread calls to guarantee it univokely identifies the query.\\
+\hline
+\end{DoxyParams}
+When you call execute, you must be ready to provide a QString representing a valid query inside the \doxyref{query()}{p.}{classDbQueryInterface_a8d6b023d6bae49f4176d5392e13131d3} method below. \mbox{\label{classDbQueryInterface_a08ad6c9c9bf07eb08d3a3e42be61b8f9}} 
+\index{DbQueryInterface@{DbQueryInterface}!executeSignal@{executeSignal}}
+\index{executeSignal@{executeSignal}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{executeSignal}
+{\footnotesize\ttfamily void Db\+Query\+Interface\+::execute\+Signal (\begin{DoxyParamCaption}\item[{const QString \&}]{interface\+Name,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+This signal is connected inside \doxyref{THdb\+Base\+::register\+Db\+Query}{p.}{classTHdbBase_a5a3e96123fd4d5a84799b48d6536c4d1} to trigger the query execution when \doxyref{execute()}{p.}{classDbQueryInterface_a3613e6f361a95aa7d8bd166a4680eb0d} method is invoked.
+
+You should not need use this signal in your application, unless you want to be notified when \doxyref{execute()}{p.}{classDbQueryInterface_a3613e6f361a95aa7d8bd166a4680eb0d} is called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em interface\+Name} & the name of the interface as specified in \doxyref{THdb\+Base\+::register\+Db\+Query}{p.}{classTHdbBase_a5a3e96123fd4d5a84799b48d6536c4d1} \\
+\hline
+{\em id} & the integer specified when calling execute. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classDbQueryInterface_abc1a06c558861035f37f0c3017fe589a}} 
+\index{DbQueryInterface@{DbQueryInterface}!interfaceName@{interfaceName}}
+\index{interfaceName@{interfaceName}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{interfaceName()}
+{\footnotesize\ttfamily QString Db\+Query\+Interface\+::interface\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+You needn\textquotesingle{}t normally use this method \mbox{\label{classDbQueryInterface_a6b61df898472b74141437f43b7d5488c}} 
+\index{DbQueryInterface@{DbQueryInterface}!notify@{notify}}
+\index{notify@{notify}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{notify()}
+{\footnotesize\ttfamily virtual void Db\+Query\+Interface\+::notify (\begin{DoxyParamCaption}\item[{const QSql\+Query \&}]{query\+Result,  }\item[{const int}]{event\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+This is invoked in the main thread. 
+\begin{DoxyParams}{Parameters}
+{\em query\+Result} & the QSql\+Query returned by the QSql\+Query\+::exec() method. It contains the data (see Qt QSql\+Query documentation).\\
+\hline
+{\em event\+Id} & the same integer previously passed to the execute method that allows to recognize the query originating the result stored in query\+Result. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classDbQueryInterface_a8d6b023d6bae49f4176d5392e13131d3}} 
+\index{DbQueryInterface@{DbQueryInterface}!query@{query}}
+\index{query@{query}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{query()}
+{\footnotesize\ttfamily virtual QString Db\+Query\+Interface\+::query (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+QString a string representing the desired query.
+\end{DoxyReturn}
+This is pure virtual and must be implemented. 
+\begin{DoxyParams}{Parameters}
+{\em id} & You can store a map of queries such as a QMap$<$int, QString$>$ in your application and then return the correct query according to the id. The id is the same that the framework propagates from the execute to the notify, passing through this \doxyref{query()}{p.}{classDbQueryInterface_a8d6b023d6bae49f4176d5392e13131d3} method. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classDbQueryInterface_a48329bf6cdb05c4b53eeb99a92e195bb}} 
+\index{DbQueryInterface@{DbQueryInterface}!setId@{setId}}
+\index{setId@{setId}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{setId()}
+{\footnotesize\ttfamily void Db\+Query\+Interface\+::set\+Id (\begin{DoxyParamCaption}\item[{const int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{classDbQueryInterface_afc321a1b9b77768f3ecc1a40e7b3c965}} 
+\index{DbQueryInterface@{DbQueryInterface}!setInterfaceName@{setInterfaceName}}
+\index{setInterfaceName@{setInterfaceName}!DbQueryInterface@{DbQueryInterface}}
+\doxysubsubsection{setInterfaceName()}
+{\footnotesize\ttfamily void Db\+Query\+Interface\+::set\+Interface\+Name (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+You needn\textquotesingle{}t normally use this method 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dbqueryinterface.\+h}\end{DoxyCompactItemize}

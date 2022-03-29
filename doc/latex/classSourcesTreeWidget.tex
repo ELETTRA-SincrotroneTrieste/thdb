@@ -1,0 +1,168 @@
+\doxysection{Sources\+Tree\+Widget Class Reference}
+\label{classSourcesTreeWidget}\index{SourcesTreeWidget@{SourcesTreeWidget}}
+
+
+a Tree\+Widget used by \doxyref{Archived\+Sources\+Tree\+Widget}{p.}{classArchivedSourcesTreeWidget} class that manages 3-\/level tree items such as tango attribute names.  
+
+
+
+
+{\ttfamily \#include $<$sourcestreewidget.\+h$>$}
+
+Inheritance diagram for Sources\+Tree\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classSourcesTreeWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ add\+Source} (const QString \&source, bool expand)
+\begin{DoxyCompactList}\small\item\em adds a source to the tree and expands the parent node if the expand parameter is true. \end{DoxyCompactList}\item 
+void \textbf{ update\+Sources\+List} (const QString\+List \&sources, bool expand=false)
+\begin{DoxyCompactList}\small\item\em calls add\+Source for each source in the sources parameter \end{DoxyCompactList}\item 
+void \textbf{ remove\+Selected\+Sources} ()
+\begin{DoxyCompactList}\small\item\em removes the selected sources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Sources\+Tree\+Widget} (QWidget $\ast$parent=0)
+\item 
+QString\+List \textbf{ get\+Sources} () const
+\begin{DoxyCompactList}\small\item\em returns all the tango sources in the tree \end{DoxyCompactList}\item 
+QString\+List \textbf{ selected\+Sources} () const
+\begin{DoxyCompactList}\small\item\em returns the selected sources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ drag\+Move\+Event} (QDrag\+Move\+Event $\ast$event)
+\item 
+void \textbf{ drag\+Enter\+Event} (QDrag\+Enter\+Event $\ast$event)
+\item 
+QMime\+Data $\ast$ \textbf{ mime\+Data} (const QList$<$ QTree\+Widget\+Item $\ast$ $>$ items) const
+\item 
+void \textbf{ drop\+Event} (QDrop\+Event $\ast$event)
+\item 
+QString \textbf{ build\+Item\+Text} (const QTree\+Widget\+Item $\ast$it) const
+\item 
+int \textbf{ level} (QTree\+Widget\+Item $\ast$it) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Sources\+Tree\+Widget\+Private $\ast$ \textbf{ d\+\_\+ptr}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used by \doxyref{Archived\+Sources\+Tree\+Widget}{p.}{classArchivedSourcesTreeWidget} and provides some methods to manage the tango sources in a tree. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classSourcesTreeWidget_a495f1f44cd3cd7b2e4d9a4b6633f97b8}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!SourcesTreeWidget@{SourcesTreeWidget}}
+\index{SourcesTreeWidget@{SourcesTreeWidget}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{SourcesTreeWidget()}
+{\footnotesize\ttfamily Sources\+Tree\+Widget\+::\+Sources\+Tree\+Widget (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classSourcesTreeWidget_a3d282194c9f20fb7f9423747462002bd}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!addSource@{addSource}}
+\index{addSource@{addSource}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{addSource}
+{\footnotesize\ttfamily void Sources\+Tree\+Widget\+::add\+Source (\begin{DoxyParamCaption}\item[{const QString \&}]{source,  }\item[{bool}]{expand }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & the attribute name to add in the tree \\
+\hline
+{\em expand} & true the parent is expanded to show the children \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classSourcesTreeWidget_a2b41125e9f596a5a7261fee2876756ed}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!buildItemText@{buildItemText}}
+\index{buildItemText@{buildItemText}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{buildItemText()}
+{\footnotesize\ttfamily QString Sources\+Tree\+Widget\+::build\+Item\+Text (\begin{DoxyParamCaption}\item[{const QTree\+Widget\+Item $\ast$}]{it }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classSourcesTreeWidget_a26ff323cb73b35a10a9f314a7bc5a99b}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!dragEnterEvent@{dragEnterEvent}}
+\index{dragEnterEvent@{dragEnterEvent}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{dragEnterEvent()}
+{\footnotesize\ttfamily void Sources\+Tree\+Widget\+::drag\+Enter\+Event (\begin{DoxyParamCaption}\item[{QDrag\+Enter\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classSourcesTreeWidget_a0f5eeae90e4373bc1190783dee770073}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!dragMoveEvent@{dragMoveEvent}}
+\index{dragMoveEvent@{dragMoveEvent}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{dragMoveEvent()}
+{\footnotesize\ttfamily void Sources\+Tree\+Widget\+::drag\+Move\+Event (\begin{DoxyParamCaption}\item[{QDrag\+Move\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classSourcesTreeWidget_a263a718c55e844318f554c4413a138b4}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!dropEvent@{dropEvent}}
+\index{dropEvent@{dropEvent}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{dropEvent()}
+{\footnotesize\ttfamily void Sources\+Tree\+Widget\+::drop\+Event (\begin{DoxyParamCaption}\item[{QDrop\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classSourcesTreeWidget_afa5cfc1452efdd069bb3f8ff1d3f772f}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!getSources@{getSources}}
+\index{getSources@{getSources}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{getSources()}
+{\footnotesize\ttfamily QString\+List Sources\+Tree\+Widget\+::get\+Sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyNote}{Note}
+only leaf elements without children are returned, i.\+e. tango attribute names (test/device/1/long\+\_\+scalar). 
+\end{DoxyNote}
+\mbox{\label{classSourcesTreeWidget_ac6d1ed70ed4600983e3568b798905f37}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!level@{level}}
+\index{level@{level}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{level()}
+{\footnotesize\ttfamily int Sources\+Tree\+Widget\+::level (\begin{DoxyParamCaption}\item[{QTree\+Widget\+Item $\ast$}]{it }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classSourcesTreeWidget_a11e3251635c92c9b6305bf2a9a3ccf24}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!mimeData@{mimeData}}
+\index{mimeData@{mimeData}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{mimeData()}
+{\footnotesize\ttfamily QMime\+Data $\ast$ Sources\+Tree\+Widget\+::mime\+Data (\begin{DoxyParamCaption}\item[{const QList$<$ QTree\+Widget\+Item $\ast$ $>$}]{items }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{classSourcesTreeWidget_abbc46244856410d7ccffae2b72d1da46}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!removeSelectedSources@{removeSelectedSources}}
+\index{removeSelectedSources@{removeSelectedSources}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{removeSelectedSources}
+{\footnotesize\ttfamily void Sources\+Tree\+Widget\+::remove\+Selected\+Sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\label{classSourcesTreeWidget_ab2a505e3fb5cb62f8c28e8405f26a61d}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!selectedSources@{selectedSources}}
+\index{selectedSources@{selectedSources}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{selectedSources()}
+{\footnotesize\ttfamily QString\+List Sources\+Tree\+Widget\+::selected\+Sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyNote}{Note}
+only leaf elements without children are returned, i.\+e. tango attribute names (test/device/1/long\+\_\+scalar). 
+\end{DoxyNote}
+\mbox{\label{classSourcesTreeWidget_a25f89642703ba4471c16c7a1123f2b36}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!updateSourcesList@{updateSourcesList}}
+\index{updateSourcesList@{updateSourcesList}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{updateSourcesList}
+{\footnotesize\ttfamily void Sources\+Tree\+Widget\+::update\+Sources\+List (\begin{DoxyParamCaption}\item[{const QString\+List \&}]{sources,  }\item[{bool}]{expand = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+Simply calles add\+Source for each source in sources.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{add\+Source}{p.}{classSourcesTreeWidget_a3d282194c9f20fb7f9423747462002bd} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classSourcesTreeWidget_a235bd388bcc5e2fddb6b3402ab2a5d6d}} 
+\index{SourcesTreeWidget@{SourcesTreeWidget}!d\_ptr@{d\_ptr}}
+\index{d\_ptr@{d\_ptr}!SourcesTreeWidget@{SourcesTreeWidget}}
+\doxysubsubsection{d\_ptr}
+{\footnotesize\ttfamily Sources\+Tree\+Widget\+Private$\ast$ Sources\+Tree\+Widget\+::d\+\_\+ptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ sourcestreewidget.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\doxysection{archivedsourcestreewidget.\+h}
+\label{archivedsourcestreewidget_8h_source}\index{archivedsourcestreewidget.h@{archivedsourcestreewidget.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ARCHIVEDSOURCESTREEWIDGET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define ARCHIVEDSOURCESTREEWIDGET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QTreeWidget>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <thdbsingleton.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}sourcestreewidget.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }THdb;}
+\DoxyCodeLine{9 \textcolor{keyword}{class }SourcesTreeWidgetPrivate;}
+\DoxyCodeLine{10 \textcolor{keyword}{class }DbConnectionParams;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }ArchivedSourcesTreeWidget : \textcolor{keyword}{public} SourcesTreeWidget}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     Q\_OBJECT}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \textcolor{keyword}{explicit} ArchivedSourcesTreeWidget(QWidget *parent = 0, THdb* thdb = THdbSingleton::instance());}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} setTHdb(THdb* thdb);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{36     THdb* thdb() \textcolor{keyword}{const};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} switchDatabase(THdbBase::Type t, \textcolor{keyword}{const} DbConnectionParams\& dbp);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} load() \{ reload(); \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} reload();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 signals:}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{private}:}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ARCHIVEDSOURCESTREEWIDGET\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,117 @@
+\doxysection{Db\+Connection\+Params Class Reference}
+\label{classDbConnectionParams}\index{DbConnectionParams@{DbConnectionParams}}
+
+
+this class contains the parameters that define a connection to a My\+Sql database.  
+
+
+
+
+{\ttfamily \#include $<$dbconnectionparams.\+h$>$}
+
+Inheritance diagram for Db\+Connection\+Params\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDbConnectionParams}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Db\+Connection\+Params} (const QString \&\textbf{ db\+Name}=QString(), const QString \&\textbf{ db\+User}=QString(), const QString \&\textbf{ db\+Password}=QString(), const QString \&\textbf{ db\+Host}=QString(), unsigned short \textbf{ db\+Port}=3306)
+\begin{DoxyCompactList}\small\item\em the constructor, which takes as input arguments all the necessary parameters used to connect to a My\+Sql database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QString \textbf{ db\+Name}
+\item 
+QString \textbf{ db\+User}
+\item 
+QString \textbf{ db\+Password}
+\item 
+QString \textbf{ db\+Host}
+\item 
+unsigned short int \textbf{ db\+Port}
+\item 
+bool \textbf{ is\+Valid}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use this class to create a database connection or to switch an already active connection to another one with different parameters.
+
+This class is used in conjunction with \doxyref{THdb\+Base\+::set\+Type}{p.}{classTHdbBase_a45720d6d9c0b3f9815ae1df12a82f333} or \doxyref{THdb\+Base\+::set\+Connection\+Parameters}{p.}{classTHdbBase_a5a55c7839e9b58e24a244eff0fd681d1}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{THdb\+Base\+::set\+Connection\+Parameters}{p.}{classTHdbBase_a5a55c7839e9b58e24a244eff0fd681d1} 
+
+\doxyref{THdb\+Base\+::set\+Type}{p.}{classTHdbBase_a45720d6d9c0b3f9815ae1df12a82f333} 
+
+\doxyref{THdb\+Base}{p.}{classTHdbBase} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classDbConnectionParams_a09dc798f4e8dd97b6fa77f894ad4dffc}} 
+\index{DbConnectionParams@{DbConnectionParams}!DbConnectionParams@{DbConnectionParams}}
+\index{DbConnectionParams@{DbConnectionParams}!DbConnectionParams@{DbConnectionParams}}
+\doxysubsubsection{DbConnectionParams()}
+{\footnotesize\ttfamily Db\+Connection\+Params\+::\+Db\+Connection\+Params (\begin{DoxyParamCaption}\item[{const QString \&}]{db\+Name = {\ttfamily QString()},  }\item[{const QString \&}]{db\+User = {\ttfamily QString()},  }\item[{const QString \&}]{db\+Password = {\ttfamily QString()},  }\item[{const QString \&}]{db\+Host = {\ttfamily QString()},  }\item[{unsigned short}]{db\+Port = {\ttfamily 3306} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Name} & the database name, or schema, such as \char`\"{}tdb\char`\"{}, \char`\"{}hdb\char`\"{}, \char`\"{}snap\char`\"{}... \\
+\hline
+{\em db\+User} & the user name to use to connect to the database \\
+\hline
+{\em db\+Password} & the password to use to connect to the database \\
+\hline
+{\em db\+Host} & the name of the host running the database, such as \char`\"{}hokuto\char`\"{}, \char`\"{}hokuto.\+elettra.\+trieste.\+it\char`\"{} \\
+\hline
+{\em db\+Port} & the tcp port on which the database server is listening to. The default value is 3306.\\
+\hline
+\end{DoxyParams}
+You can also construct a \doxyref{Db\+Connection\+Params}{p.}{classDbConnectionParams} object with an empty constructor and then set the single parameters of the connection, which are simple public variables. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classDbConnectionParams_a59472fb3220d37af59117c5b856db725}} 
+\index{DbConnectionParams@{DbConnectionParams}!dbHost@{dbHost}}
+\index{dbHost@{dbHost}!DbConnectionParams@{DbConnectionParams}}
+\doxysubsubsection{dbHost}
+{\footnotesize\ttfamily QString Db\+Connection\+Params\+::db\+Host}
+
+\mbox{\label{classDbConnectionParams_ac315043397976ef9124b18fa4898b76b}} 
+\index{DbConnectionParams@{DbConnectionParams}!dbName@{dbName}}
+\index{dbName@{dbName}!DbConnectionParams@{DbConnectionParams}}
+\doxysubsubsection{dbName}
+{\footnotesize\ttfamily QString Db\+Connection\+Params\+::db\+Name}
+
+\mbox{\label{classDbConnectionParams_a2c5825305c3c9c83d13a1ccc053c40bc}} 
+\index{DbConnectionParams@{DbConnectionParams}!dbPassword@{dbPassword}}
+\index{dbPassword@{dbPassword}!DbConnectionParams@{DbConnectionParams}}
+\doxysubsubsection{dbPassword}
+{\footnotesize\ttfamily QString Db\+Connection\+Params\+::db\+Password}
+
+\mbox{\label{classDbConnectionParams_a6f3db8d77896ffbd4b2195a3b538c254}} 
+\index{DbConnectionParams@{DbConnectionParams}!dbPort@{dbPort}}
+\index{dbPort@{dbPort}!DbConnectionParams@{DbConnectionParams}}
+\doxysubsubsection{dbPort}
+{\footnotesize\ttfamily unsigned short int Db\+Connection\+Params\+::db\+Port}
+
+\mbox{\label{classDbConnectionParams_ad8678b28a22007d683b6d0d5f8530844}} 
+\index{DbConnectionParams@{DbConnectionParams}!dbUser@{dbUser}}
+\index{dbUser@{dbUser}!DbConnectionParams@{DbConnectionParams}}
+\doxysubsubsection{dbUser}
+{\footnotesize\ttfamily QString Db\+Connection\+Params\+::db\+User}
+
+\mbox{\label{classDbConnectionParams_ab14ee09069f3a46ffbc326b29b39c44b}} 
+\index{DbConnectionParams@{DbConnectionParams}!isValid@{isValid}}
+\index{isValid@{isValid}!DbConnectionParams@{DbConnectionParams}}
+\doxysubsubsection{isValid}
+{\footnotesize\ttfamily bool Db\+Connection\+Params\+::is\+Valid}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dbconnectionparams.\+h}\end{DoxyCompactItemize}

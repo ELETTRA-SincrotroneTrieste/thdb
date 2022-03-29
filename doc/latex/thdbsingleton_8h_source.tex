@@ -1,0 +1,24 @@
+\doxysection{thdbsingleton.\+h}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef THDBSINGLETON\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define THDBSINGLETON\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <thdb.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QCoreApplication>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }THdbSingleton : \textcolor{keyword}{public} THdb}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \textcolor{keyword}{static} THdbSingleton *instance(QObject *parent = QCoreApplication::instance());}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{20     THdbSingleton(QObject *parent);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \textcolor{keyword}{static} THdbSingleton *\_instance;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// THDBSINGLETON\_H}}
+
+\end{DoxyCode}
