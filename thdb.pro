@@ -12,17 +12,17 @@ BIN_DIR = $${INSTALL_ROOT}/bin
 
 lib.path = $${LIB_DIR}
 
-VERSION = 1.0.5
+VERSION = 1.0.6
 VER_MAJ = 1
 VER_MIN = 0
-VER_FIX = 5
+VER_FIX = 6
 
 DEFINES += THDB_VERSION=\"\\\"$${VERSION}\\\"\" \
     VER_MAJ=$${VER_MAJ} \
     VER_MIN=$${VER_MIN} \
     VER_FIX=$${VER_FIX}
 
-TEMPLATE = lib staticlib
+TEMPLATE = lib
 
 CONFIG += debug
 CONFIG -= warn_off silent
@@ -36,13 +36,8 @@ QT += sql
 
 TARGET = THdb
 
-QMAKE_CLEAN += libTHdb*
-
 DEFINES += QT_NO_DEBUG_OUTPUT
 DEFINES += QTANGO_PRINTINFO
-
-DEPENDPATH += . \
-              private
 
 INCLUDEPATH += . \
                private \
@@ -125,19 +120,6 @@ doc.commands = \
 doc.files = doc/
 doc.path = $${DOC_DIR}
 
-# lib
-lib.path = $${LIB_DIR}
-lib.files = libTHdb.so.$${VERSION}
-lib.commands = ln \
-    -sf \
-    libTHdb.so.$${VERSION} \
-    $${LIB_DIR}/libTHdb.so.$${VER_MAJ} \
-    && \
-    ln \
-    -sf \
-    libTHdb.so.$${VER_MAJ} \
-    $${LIB_DIR}/libTHdb.so
-
 inc.files = \
     THdb  APTInfo queries/APTData queries/AMTData \
     HdbProxy DbProxy DbQueryInterface DbConnectionParams \
@@ -150,12 +132,25 @@ inc.files = \
     ui/ui_configWidget.h
 
 inc.files += $${HEADERS}
-
 inc.path = $${INC_DIR}
-
+target.path = $${LIB_DIR}
 
 # installation
 
-INSTALLS += lib \
-    inc \
-    doc
+INSTALLS += target \
+    inc
+
+INSTALLS += doc
+
+# pkg config
+#
+CONFIG += create_pc create_prl no_install_prl
+
+QMAKE_PKGCONFIG_NAME = THdb
+QMAKE_PKGCONFIG_DESCRIPTION = Qt hdb module
+QMAKE_PKGCONFIG_PREFIX = $${INSTALL_ROOT}
+QMAKE_PKGCONFIG_LIBDIR = $${target.path}
+QMAKE_PKGCONFIG_INCDIR = $${inc.path}
+QMAKE_PKGCONFIG_VERSION = $${VERSION}
+QMAKE_PKGCONFIG_DESTDIR = pkgconfig
+
